@@ -65,7 +65,7 @@ export const projectSections = [
         contribution: "Contribution : Main Page 100%, Goods Page 80%",
         stack: ["React", "Styled-Components", "Firebase"],
         moreDescription: "",
-        siteUrl: "https://seongminjo7.github.io/seongminjo-portfolio/peat/",
+        siteUrl: "https://seongminjo7.github.io/peat/",
         navTitle: "Peat",
     }
 ];

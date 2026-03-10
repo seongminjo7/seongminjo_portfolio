@@ -61,7 +61,7 @@ export default function Intro() {
 
 const IntroWrapper = styled.div`
     width: 100%;
-    height: 906px;
+    height: 100vh;
     background-color: var(--background-color);
     color: var(--text-color);
     position: relative;

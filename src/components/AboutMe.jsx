@@ -13,7 +13,7 @@ export default function AboutMe() {
 
 const AboutWrapper = styled.div`
     width: 100%;
-    height: 890px;
+    height: 100vh;
     background-color: var(--background-color);
     color: var(--text-color);
     position: relative;

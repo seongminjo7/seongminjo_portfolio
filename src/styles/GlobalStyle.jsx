@@ -17,8 +17,17 @@ const GlobalStyle = createGlobalStyle`
 
   /* 전체적으로 적용될 기본 스타일 */
 
+  *{
+    /* 기본적으로 모든 텍스트의 줄바꿈 방식을 설정 */
+    word-break: keep-all; 
+    
+    /* 혹시라도 단어가 너무 길어 레이아웃을 깨뜨릴 경우, 단어 중간에서라도 줄바꿈을 허용 */
+    overflow-wrap: break-word;
+  }
+
   body {
     margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);

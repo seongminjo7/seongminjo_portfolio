@@ -46,7 +46,11 @@ export default function Portfolio() {
                       </InfoP>
                     </InfoSub>
                     <StackList>
-                      <p>{section.stack}</p>
+                      <p>
+                        {section.stack.map((item, index) => (
+                          <span key={index}>#{item} </span>
+                        ))}
+                      </p>
                     </StackList>
                     <p>{section.description}</p>
                   </InfoTop>
@@ -101,7 +105,7 @@ const Bottom = styled.div`
 
 const Left = styled.div`
   width: 100%;
-  max-width: 712px;
+  max-width: 800px;
   aspect-ratio: 16 / 9;
   /* 크기 조금 더 크게 */
   padding: 20px;
@@ -123,7 +127,7 @@ const Left = styled.div`
 
 const Right = styled.div`
   height: 100%;
-  width: 560px;
+  width: 520px;
   color: var(--background-color);
   display: flex;
   flex-direction: column;

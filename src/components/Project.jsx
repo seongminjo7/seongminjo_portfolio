@@ -175,6 +175,10 @@ const Right = styled.div`
   p {
     margin-top: 20px;
   }
+
+  @media (max-width: 1600px){
+    width: 100%;
+  }
 `;
 
 const ProjectInfo = styled.div`
@@ -224,6 +228,10 @@ const StackList = styled.div`
 
   p {
     font-size: 24px;
+  }
+
+    @media (max-width: 1600px){
+    width: 100%;
   }
 `;
 

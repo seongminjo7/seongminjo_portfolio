@@ -4,50 +4,67 @@ import { useEffect } from 'react';
 
 export default function ProjectModal({ project, onClose }) {
 
+    useEffect(() => {
+        // 1. project가 없으면(모달이 닫힌 상태면) 아무것도 안 함
+        if (!project) return;
+
+        // 2. 모달이 열릴 때만 스크롤 고정
+        const scrollY = window.scrollY;
+        document.body.style.cssText = `
+        position: fixed; 
+        top: -${scrollY}px; 
+        width: 100%;
+        overflow-y: scroll;
+    `;
+
+        // 3. 모달이 닫힐 때(정리 함수 실행 시) 복구
+        return () => {
+            const scrollY = document.body.style.top;
+            document.body.style.cssText = '';
+            window.scrollTo(0, parseInt(scrollY || '0') * -1);
+        };
+    }, [project]); // ★ 이 부분이 핵심입니다!
+
     // 데이터가 없을 때 렌더링 방지 (에러 해결 핵심)
     if (!project) return null;
 
     return (
         <ModalOverlay onClick={onClose}>
             <ModalContainer onClick={(e) => e.stopPropagation()}>
-                <CloseBtn onClick={onClose}>
-                    <IoMdClose size={40} />
-                </CloseBtn>
+                <CloseBtn onClick={onClose}><IoMdClose size={40} /></CloseBtn>
 
-                <ModalContent>
-                    <div className="header">
+                <ModalContent onWheel={(e) => e.stopPropagation()}>
+                    <Header>
                         <h2>{project.title}</h2>
                         <p className="sub">{project.subTitle}</p>
-                    </div>
+                    </Header>
 
                     <hr />
 
-                    <div className="body">
-                        <div className="info-grid">
-                            <div>
+                    <Body>
+                        <InfoGrid>
+                            <Stack>
                                 <h4>STACK</h4>
                                 <p>{project.stack?.join(', ')}</p>
-                            </div>
-                            <div>
+                            </Stack>
+                            <Contribution>
                                 <h4>CONTRIBUTION</h4>
                                 <p>{project.contribution}</p>
-                            </div>
-                        </div>
+                            </Contribution>
+                        </InfoGrid>
 
-                        <div className="description">
+                        <Description>
                             <h4>DESCRIPTION</h4>
                             <p>{project.moreDescription || project.description}</p>
-                        </div>
+                        </Description>
 
-                        {/* 이미지가 있다면 매핑 */}
-                        <div className="image-list">
+                        <ImageList>
                             {project.detailImages?.map((img, idx) => (
                                 <img key={idx} src={img} alt={`${project.title} detail ${idx}`} />
                             ))}
-                            {/* 이미지가 없는 경우를 대비한 샘플 박스 */}
-                            <div className="sample-img" />
-                        </div>
-                    </div>
+                            {!project.detailImages?.length && <div className="sampleImg" />}
+                        </ImageList>
+                    </Body>
                 </ModalContent>
             </ModalContainer>
         </ModalOverlay>
@@ -60,7 +77,7 @@ const ModalOverlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(41, 41, 41, 0.50);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,44 +92,111 @@ const ModalContainer = styled.div`
   background-color: var(--background-color);
   border-radius: 40px;
   position: relative;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
+  border: 12px solid var(--main-color);
 `;
 
 const ModalContent = styled.div`
-  height: 100%;
-  padding: 80px 120px; /* 요청하신 패딩 */
+  flex: 1;
+  padding: 80px 120px;
   overflow-y: auto;
-  box-sizing: border-box;
 
-  .header {
-    margin-bottom: 30px;
-    h2 { font-size: 56px; color: var(--main-color); margin: 0; }
-    .sub { font-size: 20px; opacity: 0.8; margin-top: 10px; }
+  &::-webkit-scrollbar {
+    width: 8px;
   }
 
-  hr { border: 0.5px solid rgba(0,0,0,0.1); margin: 40px 0; }
+  &::-webkit-scrollbar-thumb {
+    background: var(--text-color);
+    border-radius: 10px;
+  }
+`;
 
-  .info-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 50px;
-    h4 { font-size: 14px; color: #888; margin-bottom: 10px; }
-    p { font-size: 18px; font-weight: 500; }
+const Header = styled.div`
+  margin-bottom: 30px;
+
+  h2 {
+    font-size: 56px;
+    color: var(--main-color);
+    margin: 0;
   }
 
-  .description {
-    margin-bottom: 60px;
-    h4 { font-size: 14px; color: #888; margin-bottom: 15px; }
-    p { font-size: 20px; line-height: 1.6; white-space: pre-line; }
+  .sub {
+    font-size: 20px;
+    opacity: 0.8;
+    margin-top: 10px;
+  }
+`;
+
+const Body = styled.div``;
+
+const InfoGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 50px;
+`;
+
+const Stack = styled.div`
+
+  h4 {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 10px;
   }
 
-  .image-list {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    img { width: 100%; border-radius: 20px; }
-    .sample-img { width: 100%; height: 600px; background: #f0f0f0; border-radius: 20px; }
+  p {
+    font-size: 18px;
+    font-weight: 500;
+  }
+`;
+
+const Contribution = styled.div`
+
+  h4 {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 18px;
+    font-weight: 500;
+  }
+`;
+
+const Description = styled.div`
+  margin-bottom: 60px;
+
+  h4 {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 20px;
+    line-height: 1.6;
+    white-space: pre-line;
+  }
+`;
+
+const ImageList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  img {
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  .sampleImg {
+    width: 100%;
+    height: 600px;
+    background: #f0f0f0;
+    border-radius: 20px;
   }
 `;
 
@@ -126,5 +210,8 @@ const CloseBtn = styled.button`
   color: var(--main-color);
   z-index: 100;
   transition: transform 0.3s;
-  &:hover { transform: rotate(90deg); }
+
+  &:hover {
+    transform: rotate(90deg);
+  }
 `;

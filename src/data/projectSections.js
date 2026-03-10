@@ -1,8 +1,20 @@
 import guessImg from "../img/project/guess.png"
+import guessModal01 from "../img/project/modal/guess01.png"
+import guessModal02 from "../img/project/modal/guess02.png"
+import guessModal03 from "../img/project/modal/guess03.png"
+
+
 import ferrariImg from "../img/project/ferrari.png"
+
+
 import animalcrossingiImg from "../img/project/animalcrossing.png"
+
+
 import coldplayiImg from "../img/project/coldplay.png"
+
+
 import peatiImg from "../img/project/peat.png"
+
 
 // 배열 타입도 추론되게 export
 export const projectSections = [
@@ -17,6 +29,7 @@ export const projectSections = [
         moreDescription: "실제 Guess 사이트를 리디자인하고 반응형 웹 구조 설계, 상품 리스트 필터 기능, 장바구니 기능 등을 직접 구현했습니다.",
         siteUrl: "https://guess-shop.netlify.app/",
         navTitle: "Guess",
+        detailImages: [guessModal01, guessModal02, guessModal03],
     },
     {
         id: "ferrari",

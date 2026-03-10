@@ -127,7 +127,7 @@ const Bottom = styled.div`
     align-items: flex-start;
     flex-direction: column;
     padding: 0;
-      gap: min(70px);
+      /* gap: min(40px); */
     width: fit-content;
     align-self: center;
 

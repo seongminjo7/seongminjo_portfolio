@@ -39,8 +39,6 @@ export default function ProjectModal({ project, onClose }) {
                         <p className="sub">{project.subTitle}</p>
                     </Header>
 
-                    <hr />
-
                     <Body>
                         <InfoGrid>
                             <Stack>
@@ -83,6 +81,12 @@ const ModalOverlay = styled.div`
   align-items: center;
   z-index: 9999;
   backdrop-filter: blur(8px);
+
+    h4 {
+    font-size: 22px;
+    /* color: var(--text-color); */
+    margin-bottom: 10px;
+  }
 `;
 
 const ModalContainer = styled.div`
@@ -114,18 +118,25 @@ const ModalContent = styled.div`
 `;
 
 const Header = styled.div`
+  padding-bottom: 10px;
   margin-bottom: 30px;
+  border-bottom: 5px solid var(--main-color);
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
 
   h2 {
+    font-family: var(--font-italic);
+    font-style: italic;
     font-size: 56px;
     color: var(--main-color);
-    margin: 0;
+    /* margin: 0; */
   }
 
   .sub {
+    color: var(--main-color);
     font-size: 20px;
-    opacity: 0.8;
-    margin-top: 10px;
+    padding-bottom: 12px;
   }
 `;
 
@@ -140,11 +151,7 @@ const InfoGrid = styled.div`
 
 const Stack = styled.div`
 
-  h4 {
-    font-size: 14px;
-    color: #888;
-    margin-bottom: 10px;
-  }
+
 
   p {
     font-size: 18px;
@@ -154,11 +161,6 @@ const Stack = styled.div`
 
 const Contribution = styled.div`
 
-  h4 {
-    font-size: 14px;
-    color: #888;
-    margin-bottom: 10px;
-  }
 
   p {
     font-size: 18px;
@@ -169,11 +171,6 @@ const Contribution = styled.div`
 const Description = styled.div`
   margin-bottom: 60px;
 
-  h4 {
-    font-size: 14px;
-    color: #888;
-    margin-bottom: 15px;
-  }
 
   p {
     font-size: 20px;

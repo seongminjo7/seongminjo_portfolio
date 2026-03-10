@@ -55,7 +55,7 @@ export default function Portfolio() {
                           {section.responsive ? "Responsive Web" : "Static Web"}
                         </p>
                         <span>/</span>
-                        <p>{section.contribution}</p>
+                        <p>Contribution : {section.contribution}</p>
                       </InfoP>
                     </InfoSub>
                     <StackList>

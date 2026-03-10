@@ -2,12 +2,25 @@ import styled from "styled-components"
 import { projectSections } from "../data/projectSections";
 import { GoArrowUpRight } from "react-icons/go";
 import { Element } from "react-scroll";
+import { useState } from "react";
+import { section } from "framer-motion/client";
+import ProjectModal from "./ProjectModal";
 
 
 export default function Portfolio() {
 
   const handleClick = (url) => {
     window.open(url, '_blank')
+  }
+
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const openModal = (section) => {
+    setSelectedProject(section);
+  }
+
+  const closeModal = () => {
+    setSelectedProject(null);
   }
 
   return (
@@ -56,7 +69,9 @@ export default function Portfolio() {
                   </InfoTop>
                   <InfoBottom>
                     <InfoBtns>
-                      <button>view more <GoArrowUpRight size={24} strokeWidth={1.1} /></button>
+                      <button onClick={() => openModal(section)}>
+                        view more <GoArrowUpRight size={24} strokeWidth={1.1} />
+                      </button>
                     </InfoBtns>
                     <InfoBtns>
                       <button onClick={() => handleClick(section.siteUrl)}>go site <GoArrowUpRight size={24} strokeWidth={1.1} /></button>
@@ -67,6 +82,12 @@ export default function Portfolio() {
             </Bottom>
           </PortfolioSection>
         ))}
+        {/* 모달 */}
+        <ProjectModal
+          project={selectedProject}
+          onClose={closeModal}
+        />
+
       </ProjectWrapper>
     </Element >
   )
@@ -101,6 +122,16 @@ const Bottom = styled.div`
   align-items: center;
   padding: 120px 30px;
   gap: min(30px);
+
+  @media (max-width: 1600px){
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 0;
+      gap: min(70px);
+    width: fit-content;
+    align-self: center;
+
+  }
 `;
 
 const Left = styled.div`
@@ -239,7 +270,7 @@ const PortfolioSection = styled.div`
 
   min-height: 100vh;
   width: 100%;
-max-width: 100vw;
+  max-width: 100vw;
 
   padding: 80px 150px 148px;
   box-sizing: border-box;
@@ -287,5 +318,10 @@ max-width: 100vw;
             color: var(--main-color);
           }
         }
+  }
+
+  @media (max-width: 1600px){
+  gap: min(60px);
+
   }
 `;

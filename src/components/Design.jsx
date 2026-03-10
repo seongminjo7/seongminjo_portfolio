@@ -68,7 +68,7 @@ export default function Design() {
 
 const DesignWrapper = styled.div`
     /* width: 100%; */
-    height: 992px;
+    height: 100vh;
     background-color: var(--background-color);
     display: flex;
     flex-direction: column;

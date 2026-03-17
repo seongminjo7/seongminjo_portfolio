@@ -108,7 +108,7 @@ const Top = styled.div`
   border-bottom: 5px solid var(--background-color);
 
   h2 {
-    font-size: 36px;
+    font-size: 2.25rem;
     padding-bottom: 10px;
     font-family: var(--font-italic);
     font-style: italic;
@@ -166,7 +166,7 @@ const Right = styled.div`
 
   h3 {
     font-family: var(--font-italic);
-    font-size: 48px;
+    font-size: 3rem;
     font-style: italic;
     color: var(--background-color);
     margin: 0;
@@ -216,7 +216,7 @@ width: fit-content;
 
 const InfoP = styled.div`
   display: flex;
-  font-size: 18px;
+  font-size: 1.2rem;
   gap: 16px;
 `;
 
@@ -227,7 +227,7 @@ const StackList = styled.div`
   gap: 4px;
 
   p {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
 
     @media (max-width: 1600px){
@@ -245,7 +245,7 @@ const InfoBtns = styled.div`
   button{
     background-color: var(--background-color);
     font-family:var(--font-main);
-    font-size: 20px;
+    font-size: 1.25rem;
     color: var(--main-color);
     display: flex;
     padding: 10px 20px;

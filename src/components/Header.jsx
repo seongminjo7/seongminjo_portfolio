@@ -167,7 +167,7 @@ const LogoWrapper = styled.div`
 
 const Logo = styled.h1`
     font-family: var(--font-secondary);
-    font-size: 28px;
+    font-size: 1.75rem;
     color: #C2C0B9;
 `
 
@@ -199,7 +199,7 @@ const Nav = styled.ul`
 
     h2 {
         font-weight: normal;
-            font-size: 56px;
+            font-size: 3.5rem;
             color: var(--main-color);
             transition: 500ms;
     }
@@ -241,7 +241,7 @@ const ProjectLists = styled.li`
 
     h3{
         color: var(--main-color);
-        font-size: 24px;
+        font-size: 1.5rem;
         font-weight: normal;
     }
 
@@ -265,7 +265,7 @@ const ProjectLists = styled.li`
 
     span{
         color: var(--main-color);
-        font-size: 13px;
+        font-size: 0.8rem;
         padding-bottom: 5px;
     }
 `

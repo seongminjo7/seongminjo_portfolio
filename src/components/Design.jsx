@@ -90,7 +90,7 @@ const DesignWrapper = styled.div`
 
     h2 {
         font-family: var(--font-main);
-        font-size: 64px;
+        font-size: 4rem;
         font-weight: bold;
         color: var(--main-color);
     }
@@ -133,7 +133,7 @@ const Lists = styled.li`
     h3 {
         font-family: var(--font-italic);
         font-style: italic;
-        font-size: 280px;
+        font-size: 17.5rem;
         color: var(--background-color);
         transition: 800ms;
         margin: 0;
@@ -146,7 +146,7 @@ const Lists = styled.li`
         cursor: default;
         
         h3 {
-            font-size: 50px;
+            font-size: 3rem;
         }
     }
 `;
@@ -183,12 +183,12 @@ const DesignInfo = styled.div`
 
     .title {
         font-weight: bold;
-        font-size: 24px;
+        font-size: 1.5rem;
         white-space: nowrap; /* 제목 줄바꿈 방지 */
     }
     
     .description {
-        font-size: 16px;
+        font-size: 1rem;
         /* 활성화 시 부드럽게 사라지게 하고 싶다면 opacity 조절 가능 */
         display: ${props => props.$active ? 'none' : 'block'};
     }
@@ -208,7 +208,7 @@ const TextBox = styled.div`
     flex-shrink: 0;
 
     .more-description {
-        font-size: 18px;
+        font-size: 1.25rem;
         line-height: 1.4;
     }
 `;

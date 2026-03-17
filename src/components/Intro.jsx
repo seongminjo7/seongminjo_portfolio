@@ -83,7 +83,7 @@ const IntroWrapper = styled.div`
 
             p{
                 font-family: var(--font-main);
-                font-size: 64px;
+                font-size: 4rem;
                 font-weight: 600;
             }
             p:first-child{
@@ -92,12 +92,12 @@ const IntroWrapper = styled.div`
             }
             .secondary{
                 font-family: var(--font-secondary);
-                font-size: 96px;
+                font-size: 6rem;
                 color: var(--main-color);
             }
 
             .italic{
-                font-size: 110px;
+                font-size: 6.8rem;
                 font-family: var(--font-main);
                 font-style: italic;
                 font-weight: bold;
@@ -120,7 +120,7 @@ const SubtitleWrapper = styled.div`
 
         p{
             font-family: var(--font-main);
-            font-size: 48px;
+            font-size: 3rem;
         }
 `
 
@@ -153,7 +153,7 @@ const SubRotate = styled.div`
 
     li{
         height: 68px; /* ⭐ 한 줄 높이 */
-        font-size: 56px;
+        font-size: 3.5rem;
         padding:0 15px 0 15px;
         position: relative;
         font-weight: bold;

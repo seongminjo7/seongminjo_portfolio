@@ -40,7 +40,7 @@ function App() {
         <ToggleBtn />
 
         <Intro />
-        <AboutMe />
+        {/* <AboutMe /> */}
         <Project />
         <Design />
         <Footer />

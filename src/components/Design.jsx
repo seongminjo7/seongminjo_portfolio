@@ -46,15 +46,17 @@ export default function Design() {
                                         <p className="more-description">{section.moreDescription}</p>
                                     </TextBox>
 
-                                    <DesignMore>
+                                    <DesignMore onWheel={(e) => e.stopPropagation()}>
                                         <ImageList>
-                                            {Array.isArray(section.moreImage) ? (
+                                            {/* {Array.isArray(section.moreImage) ? (
                                                 section.moreImage.map((img, idx) => (
                                                     <img key={idx} src={img} alt={`${section.title} ${idx}`} />
                                                 ))
                                             ) : (
                                                 <div className="sampleImg" />
-                                            )}
+                                            )} */}
+                                                    <img src={section.moreImage} alt={`${section.title}`} />
+
                                         </ImageList>
                                     </DesignMore>
 
@@ -96,28 +98,37 @@ const DesignWrapper = styled.div`
 
 // 2. 리스트 컨테이너 (UL)
 const DesignList = styled.ul`
-    height: 100%;
+height: 100%;
     display: flex;
     justify-content: space-evenly;
+    /* 중요: stretch를 막기 위해 flex-start 설정 */
+    align-items: flex-start; 
     gap: 60px;
     padding: 0;
     margin: 0;
 `;
 
 const Lists = styled.li`
-    height: 90% !important; /* 세로 고정 */
+/* % 대신 확정적인 높이를 주어 브라우저의 재계산을 막습니다 */
+    height: 70vh !important; 
+    min-height: 70vh !important;
+    max-height: 70vh !important;
+
     padding: 44px 32px;
     display: flex;
     flex: .3;
-    flex-direction: column; /* 세로로 쌓기 */
+    flex-direction: column;
     background-color: var(--main-color);
     border-radius: 50px;
     box-sizing: border-box;
     color: var(--background-color);
     transition: flex 1000ms ease, width 1000ms ease;
     position: relative;
-    overflow: hidden; /* 내부 스크롤 외에는 삐져나오지 못하게 함 */
+    overflow: hidden;
     cursor: pointer;
+
+    /* 취소선 방지: align-self를 auto로 강제 */
+    align-self: flex-start; 
 
     h3 {
         font-family: var(--font-italic);
@@ -126,33 +137,39 @@ const Lists = styled.li`
         color: var(--background-color);
         transition: 800ms;
         margin: 0;
+        line-height: 1; /* 숫자가 공간을 너무 차지하지 않게 함 */
     }
 
     &.active {
-        flex: 1.5; /* 가로만 늘어남 */
+        flex: .8; 
+        height: 70vh !important; /* 활성화 시에도 동일하게 유지 */
         cursor: default;
         
         h3 {
-            font-size: 50px; /* 활성화 시 숫자가 작아짐 */
+            font-size: 50px;
         }
     }
 `;
 
 // 숫자와 기본 정보를 가로로 배치하기 위한 래퍼
 const HeaderRow = styled.div`
+    /* height: 100%; */
     display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* 세로 중앙 정렬 */
-    gap: 20px;
+    flex-direction: column; /* 기본은 위아래 */
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 10px;
     flex-shrink: 0;
-    margin-bottom: 20px;
+    transition: all 800ms ease;
+    gap: 60%;
 
     ${Lists}.active & {
-        flex-direction: row;
-        align-items: center; /* 세로 중앙 정렬 */
-        gap: 20px;
-        flex-shrink: 0;
-        margin-bottom: 20px;
+        height: auto;
+        justify-content: flex-start;
+        flex-direction: row; /* 활성화 시 옆으로 */
+        align-items: center;
+        gap: 30px;
+        margin-bottom: 30px;
     }
 `;
 
@@ -189,6 +206,7 @@ const DesignInfoActive = styled.div`
 const TextBox = styled.div`
     margin-bottom: 15px;
     flex-shrink: 0;
+
     .more-description {
         font-size: 18px;
         line-height: 1.4;
@@ -221,7 +239,7 @@ const ImageList = styled.div`
         20px;
         display: block;
     }
-    
+
     .sampleImg {
         width: 100%;
         height: 300px;

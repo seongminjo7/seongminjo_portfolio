@@ -90,11 +90,11 @@ export default function Header() {
                         aria-hidden={!menuOpen}
                         style={{ overflow: 'hidden' }}
                     >
-                        <li className="about">
+                        {/* <li className="about">
                             <Link to="about" smooth={true} duration={800} onClick={toggleMenu}>
                                 <h2>About Me</h2>
                             </Link>
-                        </li>
+                        </li> */}
                         <li className="project">
                             <Link to="project" smooth={true} duration={800} onClick={() => setMenuOpen(false)}>
                                 <h2>Project</h2>

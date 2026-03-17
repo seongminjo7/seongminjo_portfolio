@@ -34,7 +34,7 @@ export const projectSections = [
     {
         id: "ferrari",
         title: "SCUDERIA FERRARI",
-        description: "GSAP 인터랙션과 실시간 경기 카운트다운을 담은 scuderia ferrari F1팀 팬페이지",
+        description: "GSAP 인터랙션과 실시간 경기 카운트다운을 담은 Scuderia Ferrari F1팀 팬페이지",
         image: ferrariImg,
         responsive: true,
         contribution: "100%",
@@ -46,7 +46,7 @@ export const projectSections = [
     {
         id: "animalCrossing",
         title: "ANIMAL CROSSING",
-        description: "Nookipedia API를 연동한 주민 검색 및 게임 아이템 정보 시스템",
+        description: "Nookipedia API를 연동한 모여봐요 동물의숲 주민 검색 및 아이템 정보 시스템",
         image: animalcrossingiImg,
         responsive: false,
         contribution: "100%",

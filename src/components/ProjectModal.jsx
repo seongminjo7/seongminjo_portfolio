@@ -34,12 +34,12 @@ export default function ProjectModal({ project, onClose }) {
                 <CloseBtn onClick={onClose}><IoMdClose size={40} /></CloseBtn>
 
                 <ModalContent onWheel={(e) => e.stopPropagation()}>
-                    <Header>
+                    <ModalTitle>
                         <h2>{project.title}</h2>
                         <p className="sub">{project.subTitle}</p>
-                    </Header>
+                    </ModalTitle>
 
-                    <Body>
+                    <ModalBody>
                         <InfoGrid>
                             <Stack>
                                 <h4>STACK</h4>
@@ -62,7 +62,7 @@ export default function ProjectModal({ project, onClose }) {
                             ))}
                             {!project.detailImages?.length && <div className="sampleImg" />}
                         </ImageList>
-                    </Body>
+                    </ModalBody>
                 </ModalContent>
             </ModalContainer>
         </ModalOverlay>
@@ -117,7 +117,7 @@ const ModalContent = styled.div`
   }
 `;
 
-const Header = styled.div`
+const ModalTitle = styled.div`
   padding-bottom: 10px;
   margin-bottom: 30px;
   border-bottom: 5px solid var(--main-color);
@@ -140,7 +140,7 @@ const Header = styled.div`
   }
 `;
 
-const Body = styled.div``;
+const ModalBody = styled.div``;
 
 const InfoGrid = styled.div`
   display: grid;

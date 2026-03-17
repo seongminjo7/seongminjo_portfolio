@@ -7,6 +7,8 @@ import guessModal03 from "../img/project/modal/guess03.png"
 import ferrariImg from "../img/project/ferrari.png"
 import ferrariModal00 from "../img/project/modal/ferrari00.png"
 import ferrariModal01 from "../img/project/modal/ferrari01.png"
+import ferrariModal02 from "../img/project/modal/ferrari02.png"
+import ferrariModal03 from "../img/project/modal/ferrari03.png"
 import ferrariModal04 from "../img/project/modal/ferrari04.png"
 
 import animalcrossingImg from "../img/project/animalcrossing.png"
@@ -14,6 +16,8 @@ import animalcrossingModal00 from "../img/project/modal/animalcrossing00.png"
 
 import coldplayiImg from "../img/project/coldplay.png"
 import coldplayiModal00 from "../img/project/modal/coldplay00.png"
+import coldplayiModal01 from "../img/project/modal/coldplay01.png"
+import coldplayiModal02 from "../img/project/modal/coldplay02.png"
 
 import peatiImg from "../img/project/peat.png"
 import peatModal00 from "../img/project/modal/peat00.png"
@@ -50,7 +54,7 @@ export const projectSections = [
         moreDescription: "스쿠데리아 페라리의 팬사이트입니다.",
         siteUrl: "https://seongminjo7.github.io/ferrari2026/",
         navTitle: "Scuderia Ferrari",
-        detailImages: [ferrariModal00, ferrariModal01, ferrariModal04]
+        detailImages: [ferrariModal00, ferrariModal01, ferrariModal02, ferrariModal03, ferrariModal04]
     },
     {
         id: "animalCrossing",
@@ -77,7 +81,7 @@ export const projectSections = [
         moreDescription: "대혜건축의 웹사이트를 콜드플레이 팬페이지로 클론코딩을 하였습니다.",
         siteUrl: "https://seongminjo7.github.io/coldplay/",
         navTitle: "Cold Play",
-        detailImages: [coldplayiModal00]
+        detailImages: [coldplayiModal00, coldplayiModal01, coldplayiModal02]
     },
     {
         id: "peat",

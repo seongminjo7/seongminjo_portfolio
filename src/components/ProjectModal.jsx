@@ -52,7 +52,7 @@ export default function ProjectModal({ project, onClose }) {
             </InfoGrid>
 
             <Description>
-              <h4>DESCRIPTION</h4>
+              {/* <h4>DESCRIPTION</h4> */}
               <p>{project.moreDescription || project.description}</p>
             </Description>
 

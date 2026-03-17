@@ -15,7 +15,7 @@ export default function Footer() {
 
     // 패딩 대비를 150px 정도로 키워 가로가 좁아진 느낌을 확실히 줍니다.
     const padding = useTransform(scrollYProgress, [0, 0.8], ["0 150px", "0 0px"]);
-    const borderRadius = useTransform(scrollYProgress, [0, 0.7], ["100px 100px 0 0", "0px 0px 0 0"]);
+    const borderRadius = useTransform(scrollYProgress, [0, 0.7], ["150px 150px 0 0", "0px 0px 0 0"]);
     const scale = useTransform(scrollYProgress, [0, 0.8], [0.9, 1]);
 
     return (
@@ -38,7 +38,7 @@ export default function Footer() {
 
 const FooterWrapper = styled.div`
     /* 높이를 100vh로 줄여 이전 섹션과의 간격을 좁힙니다. */
-    height: 102vh; 
+    height: 100vh; 
     background-color: var(--background-color);
     display: flex;
     /* flex-end 대신 center나 flex-start를 써서 공백을 조절할 수 있습니다. */
@@ -47,7 +47,7 @@ const FooterWrapper = styled.div`
 
 const FooterInner = styled(motion.div)`
     width: 100%;
-    height: 100vh;
+    height: 101vh;
     background-color: var(--text-color);
     display: flex;
     flex-direction: column;
@@ -57,6 +57,7 @@ const FooterInner = styled(motion.div)`
     box-sizing: border-box; /* 패딩이 안쪽으로 적용되게 필수! */
     transform-origin: bottom center; 
 `;
+
 const Textbox = styled.div`
     display: flex;
     flex-direction: column;

@@ -1,19 +1,27 @@
 import guessImg from "../img/project/guess.png"
+import guessModal00 from "../img/project/modal/guess00.png"
 import guessModal01 from "../img/project/modal/guess01.png"
 import guessModal02 from "../img/project/modal/guess02.png"
 import guessModal03 from "../img/project/modal/guess03.png"
 
-
 import ferrariImg from "../img/project/ferrari.png"
+import ferrariModal00 from "../img/project/modal/ferrari00.png"
+import ferrariModal01 from "../img/project/modal/ferrari01.png"
+import ferrariModal04 from "../img/project/modal/ferrari04.png"
 
-
-import animalcrossingiImg from "../img/project/animalcrossing.png"
-
+import animalcrossingImg from "../img/project/animalcrossing.png"
+import animalcrossingModal00 from "../img/project/modal/animalcrossing00.png"
 
 import coldplayiImg from "../img/project/coldplay.png"
-
+import coldplayiModal00 from "../img/project/modal/coldplay00.png"
 
 import peatiImg from "../img/project/peat.png"
+import peatModal00 from "../img/project/modal/peat00.png"
+import peatModal01 from "../img/project/modal/peat01.png"
+import peatModal02 from "../img/project/modal/peat02.png"
+import peatModal03 from "../img/project/modal/peat03.png"
+import peatModal04 from "../img/project/modal/peat04.png"
+
 
 
 // 배열 타입도 추론되게 export
@@ -26,10 +34,10 @@ export const projectSections = [
         responsive: true,
         contribution: "100%",
         stack: ["React", "Firebase", "Cloudinary", "Swiper", "Styled-Components"],
-        moreDescription: "실제 Guess 사이트를 리디자인하고 반응형 웹 구조 설계, 상품 리스트 필터 기능, 장바구니 기능 등을 직접 구현했습니다.",
+        moreDescription: "실제 Guess 사이트를 리디자인하고 반응형 웹 구조 설계, 상품 리스트 필터 기능, 장바구니 기능 등을 구현했습니다.",
         siteUrl: "https://guess-shop.netlify.app/",
         navTitle: "Guess",
-        detailImages: [guessModal01, guessModal02, guessModal03],
+        detailImages: [guessModal00, guessModal01, guessModal02, guessModal03],
     },
     {
         id: "ferrari",
@@ -42,18 +50,20 @@ export const projectSections = [
         moreDescription: "스쿠데리아 페라리의 팬사이트입니다.",
         siteUrl: "https://seongminjo7.github.io/ferrari2026/",
         navTitle: "Scuderia Ferrari",
+        detailImages: [ferrariModal00, ferrariModal01, ferrariModal04]
     },
     {
         id: "animalCrossing",
         title: "ANIMAL CROSSING",
         description: "Nookipedia API를 연동한 모여봐요 동물의숲 주민 검색 및 아이템 정보 시스템",
-        image: animalcrossingiImg,
+        image: animalcrossingImg,
         responsive: false,
         contribution: "100%",
         stack: ["Vite", "API", "Styled-Components"],
-        moreDescription: "실제 Zara 사이트를 클론하며 반응형 웹 구조 설계, 상품 리스트 필터 기능 등을 직접 구현했습니다.",
+        moreDescription: "Nookipedia API를 연동하여 모여봐요 동물의 숲 게임 속 등장하는 동물 주민들을 필터링, 검색 기능, 도구와 제작 제료 필터링 기능 등을 구현했습니다.",
         siteUrl: "https://animal-crossing-apipage.netlify.app/",
         navTitle: "Animal Crossing",
+        detailImages: [animalcrossingModal00]
     },
     {
         id: "coldplay",
@@ -67,6 +77,7 @@ export const projectSections = [
         moreDescription: "대혜건축의 웹사이트를 콜드플레이 팬페이지로 클론코딩을 하였습니다.",
         siteUrl: "https://seongminjo7.github.io/coldplay/",
         navTitle: "Cold Play",
+        detailImages: [coldplayiModal00]
     },
     {
         id: "peat",
@@ -76,9 +87,10 @@ export const projectSections = [
         image: peatiImg,
         responsive: false,
         contribution: "Main 100%, Goods 80%",
-        stack: ["React", "Firebase"],
+        stack: ["Swiper"],
         moreDescription: "",
         siteUrl: "https://seongminjo7.github.io/peat/",
         navTitle: "Peat",
+        detailImages: [peatModal00, peatModal01, peatModal02, peatModal03, peatModal04]
     }
 ];

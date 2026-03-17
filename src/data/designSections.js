@@ -7,14 +7,14 @@ export const designSections = [
         id: "peat",
         title: "PEAT Logo & Character",
         description: "Peat의 로고와 캐릭터 디자인",
-        moreDescription: "Peat의 로고와 캐릭터 디자인",
+        moreDescription: "팀 프로젝트 브랜드인 Peat의 로고와 캐릭터 디자인",
         moreImage: peat,
     },
     {
-        id: "a",
+        id: "illustration",
         title: "Illustration",
         description: "다양한 일러스트 작업",
-        moreDescription: "Peat의 로고와 캐릭터, 굿즈 디자인 어쩌구저쩌구",
+        moreDescription: "Illustrator를 이용한 다양한 일러스트 작업물",
         moreImage: illustration,
     },
     // {

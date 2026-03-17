@@ -65,7 +65,7 @@ export default function Portfolio() {
                         ))}
                       </p>
                     </StackList>
-                    <p>{section.description}</p>
+                    <p className="description">{section.description}</p>
                   </InfoTop>
                   <InfoBottom>
                     <InfoBtns>
@@ -108,7 +108,7 @@ const Top = styled.div`
   border-bottom: 5px solid var(--background-color);
 
   h2 {
-    font-size: 2.25rem;
+    font-size: 2.5rem;
     padding-bottom: 10px;
     font-family: var(--font-italic);
     font-style: italic;
@@ -118,16 +118,19 @@ const Top = styled.div`
 
 const Bottom = styled.div`
   display: flex;
-  justify-content: space-between;
+  /* justify-content: flex-start; */
+  gap: 80px;
+  /* justify-content: space-between; */
   align-items: center;
   padding: 120px 30px;
-  gap: min(30px);
+  /* gap: min(30px); */
 
   @media (max-width: 1600px){
-    align-items: flex-start;
+    /* 1048px? */
+    align-items: center;
     flex-direction: column;
     padding: 0;
-      /* gap: min(40px); */
+      gap: min(20px);
     width: fit-content;
     align-self: center;
 
@@ -158,7 +161,8 @@ const Left = styled.div`
 
 const Right = styled.div`
   height: 100%;
-  width: 520px;
+  width: fit-content;
+  /* width: 520px; */
   color: var(--background-color);
   display: flex;
   flex-direction: column;
@@ -187,12 +191,20 @@ height: 100%;
   justify-content: space-between;
   flex-direction: column;
   gap: 50px;
+
+  @media (max-width: 1600px){
+    flex-direction: row;
+  }
 `;
 
 const InfoTop = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
+
+  .description{
+    font-size: 1.25rem;
+  }
 `;
 
 const InfoSub = styled.div`
@@ -216,7 +228,7 @@ width: fit-content;
 
 const InfoP = styled.div`
   display: flex;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   gap: 16px;
 `;
 
@@ -228,9 +240,10 @@ const StackList = styled.div`
 
   p {
     font-size: 1.5rem;
+    font-weight: 600;
   }
 
-    @media (max-width: 1600px){
+  @media (max-width: 1600px){
     width: 100%;
   }
 `;
@@ -269,6 +282,10 @@ const InfoBtns = styled.div`
 
   button:hover svg{
     transform: rotate(360deg);
+  }
+
+    @media (max-width: 1600px){
+    align-self: flex-end;
   }
 `
 

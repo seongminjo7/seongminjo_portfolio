@@ -55,7 +55,7 @@ export default function Design() {
                                             ) : (
                                                 <div className="sampleImg" />
                                             )} */}
-                                                    <img src={section.moreImage} alt={`${section.title}`} />
+                                            <img src={section.moreImage} alt={`${section.title}`} />
 
                                         </ImageList>
                                     </DesignMore>
@@ -94,6 +94,17 @@ const DesignWrapper = styled.div`
         font-weight: bold;
         color: var(--main-color);
     }
+
+    @media (max-width: 1460px){
+           padding: 60px;
+
+    }
+
+      @media (max-width: 1024px){
+    gap: 40px;
+    box-sizing: content-box;
+
+  }
 `;
 
 // 2. 리스트 컨테이너 (UL)
@@ -106,6 +117,11 @@ height: 100%;
     gap: 60px;
     padding: 0;
     margin: 0;
+
+    @media (max-width: 1024px){
+        flex-direction: column;
+        gap: 0;
+    }
 `;
 
 const Lists = styled.li`
@@ -116,7 +132,7 @@ const Lists = styled.li`
 
     padding: 44px 32px;
     display: flex;
-    flex: .3;
+    flex: .5;
     flex-direction: column;
     background-color: var(--main-color);
     border-radius: 50px;
@@ -149,6 +165,18 @@ const Lists = styled.li`
             font-size: 3rem;
         }
     }
+
+    @media (max-width: 1024px){
+        height: 40vh !important;
+        min-height: 40vh !important;
+        max-height: 40vh !important;
+        width: 100%;
+        justify-content: center;
+
+        &.active{
+             height: 40vh !important;
+        }
+    }
 `;
 
 // 숫자와 기본 정보를 가로로 배치하기 위한 래퍼
@@ -171,6 +199,17 @@ const HeaderRow = styled.div`
         gap: 30px;
         margin-bottom: 30px;
     }
+
+    @media (max-width: 1024px){
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 0;
+
+        ${Lists}.active &{
+
+            margin-bottom: 0;
+        }
+    }
 `;
 
 const DesignInfo = styled.div`
@@ -191,6 +230,15 @@ const DesignInfo = styled.div`
         font-size: 1rem;
         /* 활성화 시 부드럽게 사라지게 하고 싶다면 opacity 조절 가능 */
         display: ${props => props.$active ? 'none' : 'block'};
+    }
+
+    @media (max-width: 1024px){
+        align-self: flex-end;
+        padding-bottom: 20px;
+
+        ${Lists}.active & {
+            padding-bottom: 0;
+        }
     }
 `;
 
@@ -260,4 +308,8 @@ const FooterBar = styled.div`
     justify-content: flex-end;
     align-items: center;
     flex-shrink: 0; /* 높이 고정 */
+
+    @media (max-width: 1024px){
+        height: fit-content;
+    }
 `;

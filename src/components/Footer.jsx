@@ -47,7 +47,7 @@ const FooterWrapper = styled.div`
 
 const FooterInner = styled(motion.div)`
     width: 100%;
-    height: 101vh;
+    height: 100vh;
     background-color: var(--text-color);
     display: flex;
     flex-direction: column;

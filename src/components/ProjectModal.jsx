@@ -115,6 +115,10 @@ const ModalContent = styled.div`
     background: var(--text-color);
     border-radius: 10px;
   }
+
+  @media (max-width: 1024px){
+    padding: 40px 60px;
+  }
 `;
 
 const ModalTitle = styled.div`
@@ -210,5 +214,10 @@ const CloseBtn = styled.button`
 
   &:hover {
     transform: rotate(90deg);
+  }
+
+  @media (max-width: 1024px){
+    top: 25px;
+    right: 20px;
   }
 `;

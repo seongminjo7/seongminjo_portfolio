@@ -160,6 +160,10 @@ const HeaderTop = styled.div`
     ${HeaderWrapper}.active &{
         justify-content: space-between;
     }
+
+    @media (max-width: 1460px){
+        gap: 50px;
+    }
 `
 const LogoWrapper = styled.div`
     cursor: pointer;

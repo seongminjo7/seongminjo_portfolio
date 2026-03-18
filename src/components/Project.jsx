@@ -106,6 +106,7 @@ const ProjectWrapper = styled.div`
 
 const Top = styled.div`
   border-bottom: 5px solid var(--background-color);
+  justify-self: flex-start;
 
   h2 {
     font-size: 2.5rem;
@@ -133,6 +134,11 @@ const Bottom = styled.div`
       gap: min(20px);
     width: fit-content;
     align-self: center;
+
+  }
+
+  @media (max-width: 1024px){
+      gap: min(80px);
 
   }
 `;
@@ -195,6 +201,11 @@ height: 100%;
   @media (max-width: 1600px){
     flex-direction: row;
   }
+
+    @media (max-width: 1024px){
+    flex-direction: column;
+    gap: min(60px);
+  }
 `;
 
 const InfoTop = styled.div`
@@ -251,6 +262,10 @@ const StackList = styled.div`
 const InfoBottom = styled.div`
   display: flex;
   gap: 20px;
+
+  @media (max-width: 1024px){
+    padding-bottom: 80px;
+  }
 `;
 
 const InfoBtns = styled.div`
@@ -297,7 +312,7 @@ const PortfolioSection = styled.div`
   width: 100%;
   max-width: 100vw;
 
-  padding: 80px 150px 148px;
+  padding: 80px 150px 118px;
   box-sizing: border-box;
 
   background-color: var(--main-color);
@@ -347,6 +362,9 @@ const PortfolioSection = styled.div`
 
   @media (max-width: 1600px){
   gap: min(60px);
+  }
 
+  @media (max-width: 1024px){
+   padding: 80px 100px 118px;
   }
 `;

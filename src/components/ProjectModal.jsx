@@ -88,6 +88,18 @@ const ModalOverlay = styled.div`
     /* color: var(--text-color); */
     margin-bottom: 10px;
   }
+
+    @media (max-width: 770px){
+      h4{
+        font-size: 1.5rem;
+      }
+  }
+
+      @media (max-width: 512px){
+      h4{
+        font-size: 1.2rem;
+      }
+  }
 `;
 
 const ModalContainer = styled.div`
@@ -151,6 +163,23 @@ const ModalTitle = styled.div`
     font-size: 1.5rem;
     padding-bottom: 12px;
   }
+
+  @media (max-width: 770px){
+    h2{
+      font-size: 3rem;
+    }
+
+    .sub{
+      font-size: 1.2rem;
+      padding-bottom: 8px;
+    }
+  }
+
+    @media (max-width: 512px){
+    h2{
+      font-size: 2.5rem;
+    }
+  }
 `;
 
 const ModalBody = styled.div``;
@@ -160,15 +189,29 @@ const InfoGrid = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   margin-bottom: 50px;
+
+  @media (max-width: 770px){
+    margin-bottom: 30px;
+  }
+
 `;
 
 const Stack = styled.div`
-
-
-
   p {
     font-size: 1.5rem;
     font-weight: 500;
+  }
+
+  @media (max-width: 770px){
+    p{
+      font-size: 1.2rem;
+    }
+  }
+
+        @media (max-width: 512px){
+    p{
+      font-size: 1rem;
+    }
   }
 `;
 
@@ -178,6 +221,18 @@ const Contribution = styled.div`
   p {
     font-size: 1.5rem;
     font-weight: 500;
+  }
+
+    @media (max-width: 770px){
+    p{
+      font-size: 1.2rem;
+    }
+  }
+
+      @media (max-width: 512px){
+    p{
+      font-size: 1rem;
+    }
   }
 `;
 
@@ -190,6 +245,21 @@ const Description = styled.div`
     letter-spacing: -1px;
     line-height: 1.6;
     white-space: pre-line;
+  }
+
+    @media (max-width: 770px){
+  margin-bottom: 40px;
+
+
+    p{
+      font-size: 1.4rem;
+    }
+  }
+
+      @media (max-width: 512px){
+    p{
+      font-size: 1rem;
+    }
   }
 `;
 

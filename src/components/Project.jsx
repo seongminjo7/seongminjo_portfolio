@@ -118,31 +118,60 @@ const Bottom = styled.div`
 `;
 
 const Left = styled.div`
+  /* 1. 핵심: 컨테이너 자체의 가로폭을 명확히 제한 (양옆 튀어나옴 방지) */
   flex: 1.2;
   width: 100%;
-  max-width: 850px;
-  aspect-ratio: 15 / 8.9;
-  padding: clamp(10px, 1.5vw, 20px);
+  
+  /* 데스크탑/태블릿 가로 모드일 때 너무 커지지 않게 제한 */
+  width: clamp(300px, 45vw, 750px);
+  
+  /* 2. 비율 유지: 요청하신 비율은 유지하되, 컨테이너 크기에 맞춤 */
+  aspect-ratio: 15 / 8.9; 
+  
+  /* 내부 디자인 스타일 유지 */
+  padding: 20px; 
   box-sizing: border-box;
   background-color: var(--background-color);
   border-radius: 13px;
-  overflow: hidden;
+  overflow: hidden; /* 이미지가 튀어나가면 잘라버림 */
+  
   display: flex;
   justify-content: center;
   align-items: center;
 
-  @media (max-height: 850px) {
-    max-height: 50vh; 
-    width: auto;
+  /* 실제 아이폰(최신 프로 모델) 긴 비율 대응 핵심 미디어 쿼리 */
+  @media (max-width: 1100px) and (orientation: landscape) {
+    /* 아이패드 가로 등 세로가 짧을 때 이미지가 다차지 않게 높이 제한 */
+    max-height: 45vh; 
+    width: auto; /* 비율에 맞춰 너비 자동 조절 */
   }
 
   img {
+    /* 3. 내부 이미지 설정: 부모 컨테이너를 절대 넘지 않게 함 (튀어나옴 방지) */
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: contain; /* 비율 유지하며 컨테이너 안에 쏙 맞춤 */
+    
     transition: transform 0.4s;
+    display: block;
   }
-  &:hover img { transform: scale(1.13); }
+
+  &:hover img {
+    transform: scale(1.13);
+  }
+
+  /* 4. 모바일 세로 모드 대응 */
+  @media (max-width: 770px){
+    padding: 10px;
+    
+    /* 가로폭 꽉 차게 하되 여백 고려 */
+    width: 100%; 
+    max-width: calc(100vw - 40px); /* 화면 양옆 여백 20px씩 고려 */
+    margin: 0 auto; /* 중앙 정렬 */
+    
+    /* 모바일 세로 비율 (이미지 비율 유지 위해) */
+    aspect-ratio: 15 / 8.7; 
+  }
 `;
 
 const Right = styled.div`

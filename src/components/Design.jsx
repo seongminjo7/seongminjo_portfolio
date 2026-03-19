@@ -142,10 +142,10 @@ height: 100%;
 `;
 
 const Lists = styled.li`
-/* % 대신 확정적인 높이를 주어 브라우저의 재계산을 막습니다 */
-    height: 70vh !important; 
-    min-height: 70vh !important;
-    max-height: 70vh !important;
+    /* 데스크탑 기본 설정 */
+    height: 70vh; 
+    min-height: 70vh;
+    max-height: 70vh;
 
     padding: 20px 32px 10px 32px;
     display: flex;
@@ -155,13 +155,10 @@ const Lists = styled.li`
     border-radius: 50px;
     box-sizing: border-box;
     color: var(--background-color);
-    transition: flex 1000ms ease, width 1000ms ease;
+    transition: all 800ms ease; /* 모든 변화에 부드러운 애니메이션 적용 */
     position: relative;
     overflow: hidden;
     cursor: pointer;
-        transition: 800ms;
-
-    /* 취소선 방지: align-self를 auto로 강제 */
     align-self: flex-start; 
 
     h3 {
@@ -171,34 +168,43 @@ const Lists = styled.li`
         color: var(--background-color);
         transition: 800ms;
         margin: 0;
-        line-height: 1; /* 숫자가 공간을 너무 차지하지 않게 함 */
+        line-height: 1;
     }
 
     &.active {
         flex: .8; 
-        height: 70vh !important; /* 활성화 시에도 동일하게 유지 */
+        height: 70vh; /* 데스크탑 active 높이 */
+        max-height: 70vh;
         cursor: default;
-
-    border-radius: 20px;
-
+        border-radius: 20px;
         
         h3 {
             font-size: 3rem;
         }
     }
 
+    /* --- 모바일/태블릿 구간 수정 --- */
     @media (max-width: 1024px){
-        height: 40vh !important;
-        min-height: 30vh !important;
-        max-height: 40vh !important;
+        /* 중요: !important를 제거하거나, active 상태에서도 확실히 덮어씌울 수 있게 구성 */
+        height: 35vh; 
+        min-height: 200px; /* 너무 작아지지 않게 최소값 보장 */
+        max-height: 35vh;
         width: 100%;
         justify-content: center;
-
         padding: 20px 32px 10px 32px;
 
-        &.active{
-             height: 80vh !important;
-             max-height: 80vh !important;
+        /* 터치되어 활성화 되었을 때 */
+        &.active {
+             /* !important를 사용하여 다른 미디어쿼리의 간섭을 방지 */
+             height: 80vh !important; 
+             max-height: 85vh !important; 
+             justify-content: flex-start; /* 내용이 위에서부터 나오게 변경 */
+             padding-top: 30px;
+        }
+        
+        /* 모바일 비활성 상태에서 숫자 크기 조절 */
+        h3 {
+            font-size: 12rem;
         }
     }
 
@@ -206,11 +212,14 @@ const Lists = styled.li`
         padding: 20px 10px 10px 20px;
         border-radius: 30px;
     
-        h3{
-            font-size: 10rem;
+        h3 {
+            font-size: 8rem;
+        }
+
+        &.active h3 {
+            font-size: 2.5rem;
         }
     }
-
 `;
 
 // 숫자와 기본 정보를 가로로 배치하기 위한 래퍼

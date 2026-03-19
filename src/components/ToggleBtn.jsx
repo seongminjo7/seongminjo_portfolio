@@ -43,6 +43,19 @@ const Buttons = styled.div`
   align-items: center;
   gap: 10px;
   z-index: 1000;
+
+  @media (max-width: 1024px){
+    flex-direction: column;
+    right: 50px;
+  }
+
+  @media (max-width: 770px){
+    right: 35px;
+  }
+
+  @media (max-width: 636px){
+    right: 25px;
+  }
 `;
 
 const ToggleButton = styled.button`

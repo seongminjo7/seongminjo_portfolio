@@ -115,31 +115,25 @@ const Top = styled.div`
     font-style: italic;
     color: var(--background-color);
   }
+
+  @media (max-width: 770px){
+    h2{
+      font-size: 1.8rem;
+    }
+  }
 `;
 
 const Bottom = styled.div`
-  display: flex;
-  /* justify-content: flex-start; */
-  gap: 80px;
-  /* justify-content: space-between; */
+ display: flex;
+  /* 화면 높이에 따라 40px에서 120px까지 유동적으로 변화 */
+  padding: clamp(40px, 8vh, 120px) 30px; 
+  gap: clamp(30px, 5vw, 80px);
   align-items: center;
-  padding: 120px 30px;
-  /* gap: min(30px); */
 
   @media (max-width: 1600px){
-    /* 1048px? */
-    align-items: center;
     flex-direction: column;
-    padding: 0;
-      gap: min(20px);
-    width: fit-content;
-    align-self: center;
-
-  }
-
-  @media (max-width: 1024px){
-      gap: min(80px);
-
+    padding: 20px 0;
+    gap: 3vh; /* 세로 모드일 땐 높이 기준 간격 */
   }
 `;
 
@@ -209,22 +203,24 @@ const Right = styled.div`
   @media (max-width: 1600px){
     width: 100%;
   }
+
+  @media (max-width: 770px){
+    h3{
+      font-size: 2.5rem;
+    }
+  }
 `;
 
 const ProjectInfo = styled.div`
 height: 100%;
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
-  gap: 50px;
+  /* 간격을 고정하지 않고 화면 높이에 맡김 */
+  gap: clamp(30px, 6vh, 60px); 
 
-  @media (max-width: 1600px){
-    flex-direction: row;
-  }
-
-    @media (max-width: 1024px){
-    flex-direction: column;
-    gap: min(60px);
+  @media (max-width: 770px){
+    /* 모바일에서는 간격을 더 좁게 설정 */
+    gap: 4vh; 
   }
 `;
 
@@ -237,6 +233,13 @@ const InfoTop = styled.div`
     font-size: 1.8rem;
     letter-spacing: -1px;
   }
+
+  @media (max-width: 770px){
+    .description{
+      font-size: 1.2rem;
+    }
+  }
+
 `;
 
 const InfoSub = styled.div`
@@ -263,6 +266,10 @@ const InfoP = styled.div`
   font-size: 2rem;
   letter-spacing: -1px;
   gap: 16px;
+
+  @media (max-width: 770px){
+    font-size: 1.2rem;
+  }
 `;
 
 const StackList = styled.div`
@@ -279,6 +286,12 @@ const StackList = styled.div`
   @media (max-width: 1600px){
     width: 100%;
   }
+
+  @media (max-width: 770px){
+    p{
+      font-size: 1.2rem;
+    }
+  }
 `;
 
 const InfoBottom = styled.div`
@@ -286,7 +299,7 @@ const InfoBottom = styled.div`
   gap: 20px;
 
   @media (max-width: 1024px){
-    padding-bottom: 80px;
+    /* padding-bottom: 80px; */
   }
 `;
 
@@ -324,6 +337,12 @@ const InfoBtns = styled.div`
 
     @media (max-width: 1600px){
     align-self: flex-end;
+  }
+
+  @media (max-width: 770px){
+    button{
+      font-size: 1.2rem;
+    }
   }
 `
 
@@ -384,7 +403,7 @@ const PortfolioSection = styled.div`
   }
 
   @media (max-width: 1600px){
-  gap: min(60px);
+  /* gap: min(60px); */
   }
 
   @media (max-width: 1460px){
@@ -392,18 +411,23 @@ const PortfolioSection = styled.div`
   }
   
   @media (max-width: 1024px){
-   padding: 62px 100px 118px;
+   padding: 50px 100px 118px;
   }
     @media (max-width: 770px){
-   padding: 62px 60px 118px;
+   padding: 50px 60px 118px;
    border-radius: 50px 50px 0 0;
+   /* gap: min(30px); */
   }
 
-    @media (max-width: 626px){
-   padding: 70px 40px 118px;
+    @media (max-width: 676px){
+   padding: 46px 30px 118px;
   }
 
     @media (max-width: 512px){
-   padding: 70px 20px 118px;
+   padding: 46px 20px 118px;
+  }
+
+      @media (max-width: 486px){
+   padding: 80px 20px 118px;
   }
 `;

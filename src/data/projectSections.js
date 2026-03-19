@@ -71,7 +71,7 @@ export const projectSections = [
     },
     {
         id: "coldplay",
-        title: "COLD PLAY",
+        title: "COLDPLAY",
         subTitle: "(Clone Coding)",
         description: "외부 사이트의 레이아웃과 UI 인터랙션을 Coldplay 팬 사이트로 재현한 클론 프로젝트",
         image: coldplayiImg,
@@ -80,7 +80,7 @@ export const projectSections = [
         stack: [],
         moreDescription: "대혜건축의 웹사이트를 콜드플레이 팬페이지로 클론코딩을 하였습니다.",
         siteUrl: "https://seongminjo7.github.io/coldplay/",
-        navTitle: "Cold Play",
+        navTitle: "ColdPlay",
         detailImages: [coldplayiModal00, coldplayiModal01, coldplayiModal02]
     },
     {

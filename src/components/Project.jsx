@@ -145,24 +145,43 @@ const Bottom = styled.div`
 
 const Left = styled.div`
   width: 100%;
-  max-width: 800px;
-  aspect-ratio: 16 / 9;
-  /* 크기 조금 더 크게 */
-  padding: 20px;
+  
+  /* 1. 핵심: 전체 가로 크기를 줄입니다. (기존 800px -> 650px 정도로 축소) */
+  max-width: 650px; 
+  
+  /* 2. 비율 조정: 16/9(약 1.77)에서 4/3(약 1.33) 또는 1.2/1 정도로 변경해 더 세로형에 가깝게 만듭니다. */
+  aspect-ratio: 15 / 8.9; 
+  
+  /* 3. 패딩 조정: 상하 여백(20px)은 유지하고, 좌우 여백(5px)을 줄여 이미지가 옆으로 더 붙게 함 */
+  padding: 20px; 
+  box-sizing: border-box;
+  
   background-color: var(--background-color);
   border-radius: 13px;
   overflow: hidden;
-  box-sizing: border-box;
+  
+  /* 이미지 중앙 정렬 (이건 유지) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    img{
+    img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      /* 4. 절대 잘리지 않게 안으로 맞춤 (이건 유지) */
+      object-fit: contain; 
+      
       transition: transform 0.4s;
+      display: block;
     }
 
-    &:hover img{
-      transform: scale(1.15);
+    &:hover img {
+      transform: scale(1.13);
+    }
+
+    @media (max-width: 770px){
+      padding: 10px;
+      aspect-ratio: 15 / 8.7; 
     }
 `;
 

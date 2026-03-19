@@ -119,6 +119,14 @@ const ModalContent = styled.div`
   @media (max-width: 1024px){
     padding: 40px 60px;
   }
+
+  @media (max-width: 770px){
+    padding: 30px 30px;
+  }
+
+  @media (max-width: 512px){
+    padding: 20px 15px;
+  }
 `;
 
 const ModalTitle = styled.div`
@@ -190,7 +198,7 @@ const ImageList = styled.div`
 
   img {
     width: 100%;
-    border-radius: 20px;
+    border-radius: 16px;
   }
 
   .sampleImg {
@@ -198,6 +206,12 @@ const ImageList = styled.div`
     height: 600px;
     background: #f0f0f0;
     border-radius: 20px;
+  }
+
+  @media (max-width: 770px){
+      img {
+    border-radius: 10px;
+  }
   }
 `;
 

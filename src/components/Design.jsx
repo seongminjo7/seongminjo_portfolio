@@ -61,11 +61,7 @@ export default function Design() {
                                     </DesignMore>
 
                                     <FooterBar>
-                                        <IoMdArrowRoundBack
-                                            size={35}
-                                            onClick={handleBackClick}
-                                            style={{ cursor: 'pointer' }}
-                                        />
+                                        <ResponsiveBackIcon onClick={handleBackClick} />
                                     </FooterBar>
                                 </DesignInfoActive>
                             </Lists>
@@ -133,7 +129,7 @@ const Lists = styled.li`
     min-height: 70vh !important;
     max-height: 70vh !important;
 
-    padding: 44px 32px;
+    padding: 44px 32px 10px 32px;
     display: flex;
     flex: .5;
     flex-direction: column;
@@ -145,6 +141,7 @@ const Lists = styled.li`
     position: relative;
     overflow: hidden;
     cursor: pointer;
+        transition: 800ms;
 
     /* 취소선 방지: align-self를 auto로 강제 */
     align-self: flex-start; 
@@ -163,6 +160,9 @@ const Lists = styled.li`
         flex: .8; 
         height: 70vh !important; /* 활성화 시에도 동일하게 유지 */
         cursor: default;
+
+    border-radius: 20px;
+
         
         h3 {
             font-size: 3rem;
@@ -175,6 +175,8 @@ const Lists = styled.li`
         max-height: 40vh !important;
         width: 100%;
         justify-content: center;
+
+        padding: 20px 32px 10px 32px;
 
         &.active{
              height: 40vh !important;
@@ -314,5 +316,24 @@ const FooterBar = styled.div`
 
     @media (max-width: 1024px){
         height: fit-content;
+        padding: 10px 0; /* 높이가 fit-content일 때 위아래 여백 */
+    }
+`;
+
+// IoMdArrowRoundBack에 스타일 입히기
+const ResponsiveBackIcon = styled(IoMdArrowRoundBack)`
+    cursor: pointer;
+    
+    /* 기본 크기 (데스크탑: 1024px 초과 시) */
+    font-size: 35px;
+
+    /* 1024px 이하일 때 (태블릿/모바일) */
+    @media (max-width: 1024px) {
+        font-size: 28px;
+    }
+
+    /* 480px 이하일 때 (작은 모바일) */
+    @media (max-width: 480px) {
+        font-size: 22px;
     }
 `;

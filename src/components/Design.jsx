@@ -142,24 +142,25 @@ height: 100%;
 `;
 
 const Lists = styled.li`
-    /* 데스크탑 기본 설정 */
+    /* 1. 기본 설정 (flex 대신 height를 우선시하도록 변경) */
+    width: 100%;
     height: 70vh; 
-    min-height: 70vh;
-    max-height: 70vh;
-
+    min-height: 500px;
+    
     padding: 20px 32px 10px 32px;
     display: flex;
-    flex: .5;
+    flex: 0.5; /* 데스크탑 가로 배열용 */
     flex-direction: column;
     background-color: var(--main-color);
     border-radius: 50px;
     box-sizing: border-box;
     color: var(--background-color);
-    transition: all 800ms ease; /* 모든 변화에 부드러운 애니메이션 적용 */
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    align-self: flex-start; 
+    
+    /* 애니메이션 속도와 대상 명시 */
+    transition: flex 800ms ease, height 800ms ease, border-radius 800ms ease;
 
     h3 {
         font-family: var(--font-italic);
@@ -172,9 +173,7 @@ const Lists = styled.li`
     }
 
     &.active {
-        flex: .8; 
-        height: 70vh; /* 데스크탑 active 높이 */
-        max-height: 70vh;
+        flex: 2; /* 활성화 시 가로로 더 많이 차지 */
         cursor: default;
         border-radius: 20px;
         
@@ -183,41 +182,52 @@ const Lists = styled.li`
         }
     }
 
-    /* --- 모바일/태블릿 구간 수정 --- */
-    @media (max-width: 1024px){
-        /* 중요: !important를 제거하거나, active 상태에서도 확실히 덮어씌울 수 있게 구성 */
-        height: 35vh; 
-        min-height: 200px; /* 너무 작아지지 않게 최소값 보장 */
-        max-height: 35vh;
+    /* --- 모바일/태블릿 터치 대응 (핵심 수정 구간) --- */
+    @media (max-width: 1024px) {
+        /* 비활성 상태: 높이를 명확하게 고정 (!important 제거) */
+        flex: none; 
         width: 100%;
-        justify-content: center;
-        padding: 20px 32px 10px 32px;
-
-        /* 터치되어 활성화 되었을 때 */
-        &.active {
-             /* !important를 사용하여 다른 미디어쿼리의 간섭을 방지 */
-             height: 80vh !important; 
-             max-height: 85vh !important; 
-             justify-content: flex-start; /* 내용이 위에서부터 나오게 변경 */
-             padding-top: 30px;
-        }
+        height: 35vh; 
+        min-height: 250px;
+        max-height: 35vh;
         
-        /* 모바일 비활성 상태에서 숫자 크기 조절 */
+        display: flex;
+        justify-content: center;
+        align-items: flex-start; /* 내부 정렬 */
+
         h3 {
-            font-size: 12rem;
+            font-size: 10rem;
+        }
+
+        /* 활성 상태: 여기서 높이를 압도적으로 높임 */
+        &.active {
+            /* !important를 써서 위쪽의 height: 35vh를 확실히 이기게 함 */
+            height: 80vh !important; 
+            min-height: 600px !important;
+            max-height: 90vh !important;
+            
+            justify-content: flex-start;
+            padding-top: 30px;
+            
+            h3 {
+                font-size: 4rem;
+            }
         }
     }
 
-    @media (max-width: 636px){
-        padding: 20px 10px 10px 20px;
-        border-radius: 30px;
-    
+    @media (max-width: 636px) {
+        padding: 20px 15px;
+        
         h3 {
             font-size: 8rem;
         }
 
-        &.active h3 {
-            font-size: 2.5rem;
+        &.active {
+            height: 85vh !important; /* 작은 폰에선 더 길게 */
+            
+            h3 {
+                font-size: 3rem;
+            }
         }
     }
 `;

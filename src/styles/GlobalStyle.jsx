@@ -32,7 +32,11 @@ const GlobalStyle = createGlobalStyle`
       font-size: 14px;
     }
 
-    @media (max-width: 770px){
+    /* @media (max-width: 770px){
+      font-size: 12px;
+    } */
+
+    @media (max-width: 676px){
       font-size: 10px;
     }
   }

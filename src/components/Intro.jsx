@@ -162,10 +162,19 @@ const IntroWrapper = styled.div`
     @media (max-width: 770px) {
         .TitleWrapper div {
             gap: 10px;
-            /* p { font-size: 2.2rem; } */
             p:first-child { margin-bottom: 10px !important; }
-            /* .secondary { font-size: 3.8rem; } */
-            /* .italic { font-size: 4rem; } */
+        }
+    }
+
+        @media (max-width: 512px) {
+
+            .TitleWrapper { right: 15px; }
+        .TitleWrapper div {
+
+             gap: 6px;
+            p { font-size: 2.4rem; }
+            .secondary { font-size: 3.8rem; }
+            .italic { font-size: 4.2rem; }
         }
     }
 `;
@@ -188,6 +197,13 @@ const SubtitleWrapper = styled.div`
     @media (max-width: 770px) {
         /* p { font-size: 2.2rem; } */
     }
+    @media (max-width: 512px) {
+        left: 15px;
+        
+        p{
+            font-size: 2.5rem;
+        }
+        }
 `;
 
 const SubRotate = styled.div`
@@ -237,6 +253,12 @@ const SubRotate = styled.div`
         li::after { 
             height: 5px; /* 2️⃣ 너무 굵으면 답답해 보일 수 있어 살짝 조절 */
             bottom: 0; /* 3️⃣ 밑줄을 위로 2px 살짝 올려서 간격 밀착 */
+        }
+    }
+
+    @media (max-width: 512px){
+        li{
+            font-size: 3rem;
         }
     }
 `;

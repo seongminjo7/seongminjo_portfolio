@@ -103,7 +103,10 @@ const DesignWrapper = styled.div`
       @media (max-width: 1024px){
     gap: 40px;
     box-sizing: content-box;
+  }
 
+  @media (max-width: 920px){
+    padding: 90px 40px 20px 40px;
   }
 `;
 

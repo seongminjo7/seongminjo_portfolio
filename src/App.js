@@ -54,6 +54,14 @@ const AllWrapper = styled.div`
   padding: 40px 40px 0 40px;
   min-height: 100vh;
   position: relative;
+
+  @media (max-width: 770px){
+    padding: 30px 30px 0 30px;
+  }
+
+  @media (max-width: 626px){
+    padding: 20px 20px 0 20px;
+  }
 `;
 
 export default App;

@@ -152,6 +152,7 @@ const Left = styled.div`
   background-color: var(--background-color);
   border-radius: 13px;
   overflow: hidden;
+  box-sizing: border-box;
 
     img{
       width: 100%;
@@ -364,7 +365,23 @@ const PortfolioSection = styled.div`
   gap: min(60px);
   }
 
+  @media (max-width: 1460px){
+    padding: 70px 150px 118px;
+  }
+  
   @media (max-width: 1024px){
-   padding: 80px 100px 118px;
+   padding: 62px 100px 118px;
+  }
+    @media (max-width: 770px){
+   padding: 62px 60px 118px;
+   border-radius: 50px 50px 0 0;
+  }
+
+    @media (max-width: 626px){
+   padding: 70px 40px 118px;
+  }
+
+    @media (max-width: 512px){
+   padding: 70px 20px 118px;
   }
 `;

@@ -61,7 +61,7 @@ export default function Header() {
                                 exit={{ opacity: 0 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <IoClose size={48} />
+                                <IoClose className="icon-close" /> {/* size 제거, 클래스 추가 */}
                             </motion.div>
                         ) : (
                             <motion.div
@@ -71,7 +71,7 @@ export default function Header() {
                                 exit={{ opacity: 0 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <RxHamburgerMenu size={38} strokeWidth={1.1} />
+                                <RxHamburgerMenu className="icon-hamburger" /> {/* size 제거, 클래스 추가 */}
                             </motion.div>
                         )}
                     </AnimatePresence>
@@ -132,6 +132,7 @@ export default function Header() {
 }
 
 const HeaderWrapper = styled.div`
+width: fit-content;
   position: fixed;
   top: ${(props) => (props.scrolled ? '20px' : '60px')};
   left: 50%;
@@ -149,6 +150,18 @@ const HeaderWrapper = styled.div`
     flex-direction: column;
     border-radius: 40px;
   }
+
+  @media (max-width: 1460px){
+    padding: 8px 25px 8px 30px;
+  }
+
+  @media (max-width: 1024px){
+    padding: 4px 20px 4px 25px;
+  }
+
+  @media (max-width: 626px){
+    padding: 4px 16px 4px 20px;
+  }
 `;
 
 const HeaderTop = styled.div`
@@ -164,6 +177,10 @@ const HeaderTop = styled.div`
     @media (max-width: 1460px){
         gap: 50px;
     }
+
+        @media (max-width: 626px){
+        gap: 20px;
+    }
 `
 const LogoWrapper = styled.div`
     cursor: pointer;
@@ -173,6 +190,7 @@ const Logo = styled.h1`
     font-family: var(--font-secondary);
     font-size: 1.75rem;
     color: #C2C0B9;
+    white-space: nowrap; /* 로고가 줄바꿈되어 너비가 줄어드는 것을 방지 */
 `
 
 const Btns = styled.button`
@@ -185,18 +203,64 @@ const Btns = styled.button`
     border: none;
     cursor: pointer;
     color: var(--main-color);
+    padding: 0;
 
     svg {
-      display: block;
+        display: block;
+        transition: width 0.3s, height 0.3s, stroke-width 0.3s;
+        /* 햄버거 아이콘의 선 두께를 여기서 조절합니다 */
+        stroke-width: 1; /* 기본보다 약간 두껍게 설정 (취향에 따라 1.5~2.2 사이 조절) */
     }
-`
+
+    .icon-close {
+        width: 48px;
+        height: 48px;
+        /* X 아이콘은 너무 두꺼우면 답답할 수 있으니 별도 조절 가능 */
+        stroke-width: 1; 
+    }
+
+    .icon-hamburger {
+        width: 38px;
+        height: 38px;
+    }
+
+    /* 1024px 이하 */
+    @media (max-width: 1024px) {
+        width: 50px;
+        height: 50px;
+        .icon-close { width: 40px; height: 40px; }
+        .icon-hamburger { 
+            width: 32px; height: 32px; 
+        }
+    }
+
+    /* 676px 이하 */
+    @media (max-width: 676px) {
+        width: 45px;
+        height: 45px;
+        .icon-close { width: 36px; height: 36px; }
+        .icon-hamburger { width: 28px; height: 28px; }
+    }
+
+    /* 457px 이하 (헤더 작아지는 시점) */
+    @media (max-width: 457px) {
+        width: 38px;
+        height: 38px;
+        .icon-close { width: 30px; height: 30px; }
+        .icon-hamburger { 
+            width: 24px; height: 24px; 
+        }
+    }
+`;
 
 const Nav = styled.ul`
   width: 500px;
+  max-width: 80vw; /* 화면이 작을 때는 화면 너비의 80%만 차지하도록 제한 */
   font-family: var(--font-secondary);
   overflow: hidden; // 꼭 필요: height 애니메이션 위해
   display: flex;
   flex-direction: column;
+  /* transition: 500ms; */
 
   li {
     width: fit-content;
@@ -216,6 +280,12 @@ const Nav = styled.ul`
 
   .project {
     display: flex;
+  }
+  @media (max-width: 770px){
+    width: 350px;
+  }
+    @media (max-width: 512px){
+    width: 280px;
   }
 `;
 

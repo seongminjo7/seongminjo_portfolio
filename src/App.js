@@ -59,7 +59,7 @@ const AllWrapper = styled.div`
     padding: 30px 30px 0 30px;
   }
 
-  @media (max-width: 626px){
+  @media (max-width: 636px){
     padding: 20px 20px 0 20px;
   }
 `;

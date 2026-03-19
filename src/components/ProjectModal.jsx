@@ -83,7 +83,8 @@ const ModalOverlay = styled.div`
   backdrop-filter: blur(8px);
 
     h4 {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
+    letter-spacing: -.8px;
     /* color: var(--text-color); */
     margin-bottom: 10px;
   }
@@ -147,7 +148,7 @@ const ModalTitle = styled.div`
 
   .sub {
     color: var(--main-color);
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     padding-bottom: 12px;
   }
 `;
@@ -166,7 +167,7 @@ const Stack = styled.div`
 
 
   p {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 500;
   }
 `;
@@ -175,7 +176,7 @@ const Contribution = styled.div`
 
 
   p {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 500;
   }
 `;
@@ -185,7 +186,8 @@ const Description = styled.div`
 
 
   p {
-    font-size: 1.25rem;
+    font-size: 1.8rem;
+    letter-spacing: -1px;
     line-height: 1.6;
     white-space: pre-line;
   }

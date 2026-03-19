@@ -152,29 +152,66 @@ const IntroWrapper = styled.div`
     @media (max-width: 1180px) {
         .TitleWrapper div {
             p { font-size: 2.8rem; }
-            .secondary { font-size: 4.5rem; }
-            .italic { font-size: 5rem; }
+
+            .secondary {
+                font-size: 4.5rem;
+            }
+            .italic {
+                font-size: 5rem;
+            }
         }
     }
+
     @media (max-width: 1024px) {
         .TitleWrapper { right: 40px; }
     }
+    
     @media (max-width: 770px) {
+    .TitleWrapper { right: 15px; }
+
         .TitleWrapper div {
             gap: 10px;
             p:first-child { margin-bottom: 10px !important; }
         }
     }
 
-        @media (max-width: 512px) {
+    @media (max-width: 636px) {
 
-            .TitleWrapper { right: 15px; }
+        .TitleWrapper {
+            right: 15px;
+            gap: 50px;
+        }
+
+        .TitleWrapper div {
+            flex-direction: column;
+            gap: 0;
+
+            p {
+                margin: 0;
+                font-size: 2rem;
+            }
+
+            p:first-child {
+                margin-bottom: 0px !important;
+            }
+        }
+    }
+
+    @media (max-width: 460px) {
+
+        .TitleWrapper {
+            right: 10px;
+            gap: 40px;
+        }
+
         .TitleWrapper div {
 
-             gap: 6px;
-            p { font-size: 2.4rem; }
-            .secondary { font-size: 3.8rem; }
-            .italic { font-size: 4.2rem; }
+            .secondary {
+                font-size: 3rem;
+            }
+            .italic {
+                font-size: 4rem;
+            }
         }
     }
 `;
@@ -194,22 +231,29 @@ const SubtitleWrapper = styled.div`
     }
 
     @media (max-width: 1024px) { left: 40px; }
+
     @media (max-width: 770px) {
-        /* p { font-size: 2.2rem; } */
-    }
-    @media (max-width: 512px) {
         left: 15px;
+        gap: 10px;
         
         p{
-            font-size: 2.5rem;
+            font-size: 1.8rem;
         }
         }
+
+    @media (max-width: 460px){
+        left: 10px;
+        gap: 5px;
+
+        p{
+            font-size: 1.5rem;
+        }
+    }
 `;
 
 const SubRotate = styled.div`
     overflow: hidden;
     position: relative;
-    /* 높이는 JS에서 실시간으로 계산하여 주입함 */
 
     ul {
         margin: 0;
@@ -220,45 +264,59 @@ const SubRotate = styled.div`
     }
 
     li {
-        font-size: 3.5rem;
+        font-size: 3.5rem; /* 기본 크기 */
         font-weight: bold;
         padding: 0 10px;
         white-space: nowrap;
         display: flex;
         align-items: center;
         justify-content: center;
-        /* line-height를 1.2정도로 고정하면 높이 계산이 깔끔해집니다 */
         line-height: 1.2; 
-        position: relative; /* after의 기준점 */
-        /* ✅ li의 높이도 JS에서 통일시켜 줍니다. */
+        position: relative;
 
-        /* ✅ 처음에 하셨던 굵기와 간격 복원 */
         &::after {
             content: "";
             position: absolute;
             background-color: var(--main-color);
-            height: 8px; /* 처음에 하신 굵기 */
-            left: 0; /* 단어 좌우 패딩 없이 꽉 차게 */
+            height: 8px;
+            left: 0;
             right: 0;
-            bottom: 0px; /* 글자 맨 아래에 붙임 */
+            bottom: 0px;
         }
     }
 
-    /* ✅ 770px 이하 미디어 쿼리 수정 */
+    /* 770px 이하 */
     @media (max-width: 770px) {
-        li { 
-            /* font-size: 2.2rem;  */
-            line-height: 1.2; /* 1️⃣ 줄 간격을 줄여서 글자와 밑줄을 가깝게 만듦 */
+        li {
+            font-size: 2.5rem; /* 770 구간 크기 명시 */
         }
-        li::after { 
-            height: 5px; /* 2️⃣ 너무 굵으면 답답해 보일 수 있어 살짝 조절 */
-            bottom: 0; /* 3️⃣ 밑줄을 위로 2px 살짝 올려서 간격 밀착 */
+        li::after {
+            height: 5px;
         }
     }
 
-    @media (max-width: 512px){
+    /* 636px 이하 (더 구체적인 범위) */
+    @media (max-width: 636px) {
+        li {
+            // font-size: 2rem !important; /* JS 인라인 스타일을 이기기 위해 임시로 !important 테스트 */
+            font-size: 2rem;
+        }
+                    li::after {
+            height: 3px;
+        }
+    }
+
+    @media (max-width: 460px){
         li{
-            font-size: 3rem;
+            font-size: 1.8rem;
+        }
+
+
+    }
+
+    @media (max-width: 340px){
+        li{
+            font-size: 1.5rem;
         }
     }
 `;

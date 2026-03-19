@@ -109,7 +109,7 @@ const Top = styled.div`
   justify-self: flex-start;
 
   h2 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     padding-bottom: 10px;
     font-family: var(--font-italic);
     font-style: italic;
@@ -147,7 +147,7 @@ const Left = styled.div`
   width: 100%;
   
   /* 1. 핵심: 전체 가로 크기를 줄입니다. (기존 800px -> 650px 정도로 축소) */
-  max-width: 650px; 
+  max-width: 850px; 
   
   /* 2. 비율 조정: 16/9(약 1.77)에서 4/3(약 1.33) 또는 1.2/1 정도로 변경해 더 세로형에 가깝게 만듭니다. */
   aspect-ratio: 15 / 8.9; 
@@ -196,7 +196,7 @@ const Right = styled.div`
 
   h3 {
     font-family: var(--font-italic);
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-style: italic;
     color: var(--background-color);
     margin: 0;
@@ -234,7 +234,8 @@ const InfoTop = styled.div`
   gap: 30px;
 
   .description{
-    font-size: 1.25rem;
+    font-size: 1.8rem;
+    letter-spacing: -1px;
   }
 `;
 
@@ -259,7 +260,8 @@ width: fit-content;
 
 const InfoP = styled.div`
   display: flex;
-  font-size: 1.4rem;
+  font-size: 2rem;
+  letter-spacing: -1px;
   gap: 16px;
 `;
 
@@ -270,7 +272,7 @@ const StackList = styled.div`
   gap: 4px;
 
   p {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 600;
   }
 
@@ -293,7 +295,8 @@ const InfoBtns = styled.div`
   button{
     background-color: var(--background-color);
     font-family:var(--font-main);
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+    letter-spacing: -1px;
     color: var(--main-color);
     display: flex;
     padding: 10px 20px;

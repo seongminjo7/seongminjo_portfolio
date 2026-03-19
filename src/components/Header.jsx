@@ -261,6 +261,7 @@ const Nav = styled.ul`
   display: flex;
   flex-direction: column;
   /* transition: 500ms; */
+  gap: 5px;
 
   li {
     width: fit-content;
@@ -286,6 +287,11 @@ const Nav = styled.ul`
   }
     @media (max-width: 512px){
     width: 280px;
+  }
+
+    @media (max-width: 460px){
+        padding-left: 10px;
+    width: 200px;
   }
 `;
 

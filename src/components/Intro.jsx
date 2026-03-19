@@ -104,150 +104,85 @@ export default function Intro() {
 
 const IntroWrapper = styled.div`
     width: 100%;
-    height: 100vh;
+    height: 100dvh; /* 브라우저 툴바 대응을 위해 dvh 사용 */
     background-color: var(--background-color);
     color: var(--text-color);
-    position: relative;
     transition: background-color 0.3s ease;
+    
+    /* Flex박스로 레이아웃 구조를 잡으면 top, right px 노가다가 사라집니다 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 18vh 6vw 12vh 6vw; /* 상 18%, 우 6%, 하 12%, 좌 6% 비율 여백 */
+    box-sizing: border-box;
 
     .TitleWrapper {
-        position: absolute;
-        top: 210px;
-        right: 80px;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        align-items: flex-end; /* 오른쪽 정렬 고정 */
+        gap: 10vh;
 
         div {
             display: flex;
             align-items: flex-end;
             justify-content: flex-end;
-            gap: 30px;
+            gap: 2vw; /* 간격도 화면 너비에 따라 조절 */
 
             p {
                 font-family: var(--font-main);
-                font-size: 4rem;
+                /* 최소 1.8rem에서 최대 4rem까지 자동 조절 */
+                font-size: clamp(1.8rem, 4vw, 4rem);
                 font-weight: 600;
                 margin: 0;
-            }
-            p:first-child {
-                margin-bottom: 30px !important;
                 letter-spacing: -0.04em;
             }
+            
             .secondary {
                 font-family: var(--font-secondary);
-                font-size: 6rem;
+                font-size: clamp(2.8rem, 7vw, 6rem);
                 color: var(--main-color);
+                line-height: 1;
             }
             .italic {
-                font-size: 6.8rem;
+                font-size: clamp(3.2rem, 8vw, 6.8rem);
                 font-family: var(--font-main);
                 font-style: italic;
                 font-weight: bold;
                 color: var(--main-color);
+                line-height: 1;
             }
         }
     }
 
-    @media (max-width: 1180px) {
-        .TitleWrapper div {
-            p { font-size: 2.8rem; }
-
-            .secondary {
-                font-size: 4.5rem;
-            }
-            .italic {
-                font-size: 5rem;
-            }
-        }
-    }
-
-    @media (max-width: 1024px) {
-        .TitleWrapper { right: 40px; }
-    }
-    
-    @media (max-width: 770px) {
-    .TitleWrapper { right: 15px; }
-
-        .TitleWrapper div {
-            gap: 10px;
-            p:first-child { margin-bottom: 10px !important; }
-        }
-    }
-
+    /* 636px 이하 모바일에서 가로로 나열하기 좁을 때만 위아래로 쌓이게 변경 */
     @media (max-width: 636px) {
-
-        .TitleWrapper {
-            right: 15px;
-            gap: 50px;
+        padding: 20vh 5vw 10vh 5vw;
+        
+        .TitleWrapper{
+            gap: 5vh;
         }
-
         .TitleWrapper div {
             flex-direction: column;
-            gap: 0;
-
-            p {
-                margin: 0;
-                font-size: 2rem;
-            }
-
+            align-items: flex-end;
+            gap: 0.5vh;
+            
             p:first-child {
-                margin-bottom: 0px !important;
-            }
-        }
-    }
-
-    @media (max-width: 460px) {
-
-        .TitleWrapper {
-            right: 10px;
-            gap: 40px;
-        }
-
-        .TitleWrapper div {
-
-            .secondary {
-                font-size: 3rem;
-            }
-            .italic {
-                font-size: 4rem;
+                margin-bottom: 0 !important;
             }
         }
     }
 `;
 
 const SubtitleWrapper = styled.div`
-    position: absolute;
-    bottom: 134px;
-    left: 80px;
     display: flex;
-    gap: 15px;
+    gap: 1.5vw;
     align-items: center;
+    /* IntroWrapper의 padding-left를 따라가므로 left px 설정이 필요 없습니다 */
 
     p {
         font-family: var(--font-main);
-        font-size: 3rem;
+        font-size: clamp(1.4rem, 3vw, 3rem);
         margin: 0;
-    }
-
-    @media (max-width: 1024px) { left: 40px; }
-
-    @media (max-width: 770px) {
-        left: 15px;
-        gap: 10px;
-        
-        p{
-            font-size: 1.8rem;
-        }
-        }
-
-    @media (max-width: 460px){
-        left: 10px;
-        gap: 5px;
-
-        p{
-            font-size: 1.5rem;
-        }
     }
 `;
 

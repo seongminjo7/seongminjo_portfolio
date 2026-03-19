@@ -70,6 +70,36 @@ const Textbox = styled.div`
         font-weight: 800;
         letter-spacing: -2px;
     }
+
+    @media (max-width: 686px){
+        .thanks{
+            font-size: 5rem;
+        }
+    }
+
+    @media (max-width: 556px){
+        gap: 20px;
+        
+            .thanks{
+            font-size: 3.5rem;
+        }
+    }
+
+    @media (max-width: 455px){
+        gap: 10px;
+        
+            .thanks{
+            font-size: 2.5rem;
+        }
+    }
+
+        @media (max-width: 360px){
+        gap: 8px;
+        
+            .thanks{
+            font-size: 2.2rem;
+        }
+    }
 `;
 
 const Mail = styled.div`
@@ -80,5 +110,27 @@ const Mail = styled.div`
     /* 메일 박스도 둥글게 하면 예쁩니다 */
     p{
         font-size: 2rem;
+    }
+
+    @media (max-width: 686px){
+        p{
+            font-size: 1.5rem;
+        }
+    }
+    
+    @media (max-width: 556px){
+
+        padding: 8px 20px;
+        p{
+            font-size: 1.2rem;
+        }
+    }
+
+        @media (max-width: 455px){
+
+            padding: 8px 10px;
+        p{
+            font-size: 1rem;
+        }
     }
 `;

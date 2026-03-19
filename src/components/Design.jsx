@@ -75,7 +75,8 @@ export default function Design() {
 
 // 1. 전체 래퍼
 const DesignWrapper = styled.div`
-    height: 100vh;
+    height: fit-content;
+    /* min-height: 100vh; */
     background-color: var(--background-color);
     display: flex;
     flex-direction: column;
@@ -96,7 +97,7 @@ const DesignWrapper = styled.div`
 
     }
 
-      @media (max-width: 1024px){
+    @media (max-width: 1024px){
     gap: 40px;
     box-sizing: content-box;
   }
@@ -104,6 +105,19 @@ const DesignWrapper = styled.div`
   @media (max-width: 920px){
     padding: 90px 40px 20px 40px;
   }
+
+      @media (max-width: 770px){
+
+        h2{
+            font-size: 3rem;
+        }
+    padding: 90px 20px;
+
+    }
+    @media (max-width: 460px){
+    padding: 90px 10px;
+
+    }
 `;
 
 // 2. 리스트 컨테이너 (UL)
@@ -120,6 +134,10 @@ height: 100%;
     @media (max-width: 1024px){
         flex-direction: column;
         gap: 0;
+        
+          li:not(:first-child) {
+ margin-top: 20px;
+  }
     }
 `;
 
@@ -129,7 +147,7 @@ const Lists = styled.li`
     min-height: 70vh !important;
     max-height: 70vh !important;
 
-    padding: 44px 32px 10px 32px;
+    padding: 20px 32px 10px 32px;
     display: flex;
     flex: .5;
     flex-direction: column;
@@ -171,7 +189,7 @@ const Lists = styled.li`
 
     @media (max-width: 1024px){
         height: 40vh !important;
-        min-height: 40vh !important;
+        min-height: 30vh !important;
         max-height: 40vh !important;
         width: 100%;
         justify-content: center;
@@ -179,9 +197,20 @@ const Lists = styled.li`
         padding: 20px 32px 10px 32px;
 
         &.active{
-             height: 40vh !important;
+             height: 80vh !important;
+             max-height: 80vh !important;
         }
     }
+
+    @media (max-width: 636px){
+        padding: 20px 10px 10px 20px;
+        border-radius: 30px;
+    
+        h3{
+            font-size: 10rem;
+        }
+    }
+
 `;
 
 // 숫자와 기본 정보를 가로로 배치하기 위한 래퍼
@@ -201,8 +230,8 @@ const HeaderRow = styled.div`
         justify-content: flex-start;
         flex-direction: row; /* 활성화 시 옆으로 */
         align-items: center;
-        gap: 30px;
-        margin-bottom: 30px;
+        gap: 15px;
+        margin-bottom: 10px;
     }
 
     @media (max-width: 1024px){
@@ -215,6 +244,8 @@ const HeaderRow = styled.div`
             margin-bottom: 0;
         }
     }
+
+    /* @media (max-width: 1024px) */
 `;
 
 const DesignInfo = styled.div`
@@ -227,12 +258,12 @@ const DesignInfo = styled.div`
 
     .title {
         font-weight: bold;
-        font-size: 1.5rem;
+        font-size: 2rem;
         white-space: nowrap; /* 제목 줄바꿈 방지 */
     }
     
     .description {
-        font-size: 1rem;
+        font-size: 1.5rem;
         /* 활성화 시 부드럽게 사라지게 하고 싶다면 opacity 조절 가능 */
         display: ${props => props.$active ? 'none' : 'block'};
     }
@@ -243,6 +274,18 @@ const DesignInfo = styled.div`
 
         ${Lists}.active & {
             padding-bottom: 0;
+        }
+    }
+
+    @media (max-width: 636px){
+        
+        .title{
+            font-size: 1rem;
+            padding-bottom: 5px;
+        }
+
+        .description{
+            font-size: 1rem;
         }
     }
 `;
@@ -261,8 +304,14 @@ const TextBox = styled.div`
     flex-shrink: 0;
 
     .more-description {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
         line-height: 1.4;
+    }
+
+    @media (max-width: 636px){
+        .more-description{
+            font-size: 1rem;
+        }
     }
 `;
 

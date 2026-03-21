@@ -13,6 +13,11 @@ import ferrariModal04 from "../img/project/modal/ferrari04.png"
 
 import animalcrossingImg from "../img/project/animalcrossing.png"
 import animalcrossingModal00 from "../img/project/modal/animalcrossing00.png"
+import animalcrossingModal01 from "../img/project/modal/animalcrossing01.png"
+import animalcrossingModal02 from "../img/project/modal/animalcrossing02.png"
+import animalcrossingModal03 from "../img/project/modal/animalcrossing03.png"
+import animalcrossingModal04 from "../img/project/modal/animalcrossing04.png"
+import animalcrossingModal05 from "../img/project/modal/animalcrossing05.png"
 
 import coldplayiImg from "../img/project/coldplay.png"
 import coldplayiModal00 from "../img/project/modal/coldplay00.png"
@@ -67,7 +72,7 @@ export const projectSections = [
         moreDescription: "Nookipedia API를 연동하여 모여봐요 동물의 숲 게임 속 등장하는 동물 주민들을 필터링, 검색 기능, 도구와 제작 제료 필터링 기능 등을 구현했습니다.",
         siteUrl: "https://animal-crossing-apipage.netlify.app/",
         navTitle: "Animal Crossing",
-        detailImages: [animalcrossingModal00]
+        detailImages: [animalcrossingModal00, animalcrossingModal01, animalcrossingModal02, animalcrossingModal03, animalcrossingModal04, animalcrossingModal05]
     },
     {
         id: "coldplay",

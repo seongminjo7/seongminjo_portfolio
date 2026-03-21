@@ -205,6 +205,7 @@ const InfoTop = styled.div`
     font-size: clamp(1rem, 1.2vw, 1.8rem);
     letter-spacing: -1px;
     line-height: 1.4;
+    white-space: pre-line; /* \n 줄바꿈 인식 */
   }
 `;
 

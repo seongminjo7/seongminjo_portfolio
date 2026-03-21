@@ -244,7 +244,7 @@ const Description = styled.div`
     font-size: 1.8rem;
     letter-spacing: -1px;
     line-height: 1.6;
-    white-space: pre-line;
+    white-space: pre-line; /* \n 줄바꿈 인식 */
   }
 
     @media (max-width: 770px){

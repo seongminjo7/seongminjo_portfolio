@@ -113,6 +113,10 @@ const ModalContainer = styled.div`
   flex-direction: column;
   overflow: hidden;
   border: 12px solid var(--main-color);
+
+   @media (max-width: 770px){
+    border: 8px solid var(--main-color);
+   }
 `;
 
 const ModalContent = styled.div`
@@ -305,5 +309,14 @@ const CloseBtn = styled.button`
   @media (max-width: 1024px){
     top: 25px;
     right: 20px;
+  }
+
+  @media (max-width: 770px){
+    /* top: 15px; */
+    right: 3px;
+  }
+
+  @media (max-width: 512px){
+    top: 18px;
   }
 `;

@@ -245,19 +245,14 @@ const Description = styled.div`
 
 
   p {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     letter-spacing: -1px;
     line-height: 1.6;
     white-space: pre-line; /* \n 줄바꿈 인식 */
   }
 
-    @media (max-width: 770px){
-  margin-bottom: 40px;
-
-
-    p{
-      font-size: 1.4rem;
-    }
+  @media (max-width: 770px){
+    margin-bottom: 40px;
   }
 
       @media (max-width: 512px){

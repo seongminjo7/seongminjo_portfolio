@@ -11,7 +11,7 @@ export default function ProjectModal({ project, onClose }) {
     // 2. 모달이 열릴 때만 스크롤 고정
     const scrollY = window.scrollY;
     document.body.style.cssText = `
-        position: fixed; 
+        position: fixed;
         top: -${scrollY}px; 
         width: 100%;
         overflow-y: scroll;
@@ -52,8 +52,17 @@ export default function ProjectModal({ project, onClose }) {
             </InfoGrid>
 
             <Description>
-              {/* <h4>DESCRIPTION</h4> */}
-              <p>{project.moreDescription || project.description}</p>
+              {Array.isArray(project.moreDescription) ? (
+                // 배열일 경우 map으로 돌려서 출력
+                project.moreDescription.map((item, index) => (
+                  <p key={index} style={{ marginBottom: '8px' }}>
+                    - <strong>{item.title} :</strong> {item.content}
+                  </p>
+                ))
+              ) : (
+                // 기존처럼 문자열일 경우를 대비한 예외 처리
+                <p>{project.moreDescription || project.description}</p>
+              )}
             </Description>
 
             <ImageList>

@@ -3,13 +3,12 @@ import GlobalStyle from './styles/GlobalStyle';  // GlobalStyle import
 import styled from 'styled-components';
 import ToggleBtn from './components/ToggleBtn';
 import Intro from './components/Intro';
-import AboutMe from './components/AboutMe';
 import Project from './components/Project';
-import Design from './components/Design';
 import Footer from './components/Footer';
 import Header from './components/Header';
 
 import Lenis from '@studio-freight/lenis';
+import Skills from './components/Skills';
 
 function App() {
 
@@ -42,7 +41,7 @@ function App() {
         <Intro />
         {/* <AboutMe /> */}
         <Project />
-        <Design />
+        <Skills />
         <Footer />
       </AllWrapper>
     </>

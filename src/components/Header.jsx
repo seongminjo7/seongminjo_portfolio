@@ -117,8 +117,8 @@ export default function Header() {
                                 ))}
                             </ProjectListWrapper> */}
                         </li>
-                        <Link to="design" smooth={true} duration={800} onClick={toggleMenu}>
-                            <li className="design"><h2>Design</h2></li>
+                        <Link to="skills" smooth={true} duration={800} onClick={toggleMenu}>
+                            <li className="skills"><h2>Skills</h2></li>
                         </Link>
                         <SnsLink>
                             <Sns><img src={kakaoIcon} alt="카카오톡 아이콘" /></Sns>

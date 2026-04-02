@@ -1,10 +1,10 @@
 import styled from "styled-components"
-import { designSections } from "../data/designSections"
+import { skillSections } from "../data/skillSections"
 import { useState } from 'react';
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { Element } from "react-scroll";
 
-export default function Design() {
+export default function Skills() {
     const [activeId, setActiveId] = useState(null);
 
     const handleClick = (id) => {
@@ -18,11 +18,11 @@ export default function Design() {
     };
 
     return (
-        <Element name="design">
+        <Element name="skills">
             <DesignWrapper>
-                <h2>DESIGN</h2>
+                <h2>SKILLS</h2>
                 <DesignList>
-                    {designSections.map((section, index) => {
+                    {skillSections.map((section, index) => {
                         const isActive = activeId === section.id;
                         return (
                             <Lists
@@ -36,14 +36,14 @@ export default function Design() {
                                     <h3>{index + 1}</h3>
                                     <DesignInfo $active={isActive}>
                                         <p className="title">{section.title}</p>
-                                        <p className="description">{section.description}</p>
+                                        {/*  <p className="description">{section.description}</p>*/}
                                     </DesignInfo>
                                 </HeaderRow>
 
                                 {/* 활성화 시 나타나는 상세 정보 영역 */}
                                 <DesignInfoActive $active={isActive}>
                                     <TextBox>
-                                        <p className="more-description">{section.moreDescription}</p>
+                                        <p className="moreDescription">{section.moreDescription}</p>
                                     </TextBox>
 
                                     <DesignMore onWheel={(e) => e.stopPropagation()}>
@@ -92,10 +92,10 @@ const DesignWrapper = styled.div`
         color: var(--main-color);
     }
 
-    @media (max-width: 1460px){
-           padding: 60px;
-
+    @media (max-width: 1800px){
+        padding: 60px;
     }
+
 
     @media (max-width: 1024px){
     gap: 40px;
@@ -127,17 +127,42 @@ height: 100%;
     justify-content: space-evenly;
     /* 중요: stretch를 막기 위해 flex-start 설정 */
     align-items: flex-start; 
-    gap: 60px;
+    gap: 20px;
     padding: 0;
     margin: 0;
 
-    @media (max-width: 1024px){
+/* 2. 간격 변화를 부드럽게 (Lists의 transition 시간과 맞추면 좋아요) */
+    transition: gap 800ms ease;
+
+    /* 3. 자식 중 .active가 생겼을 때의 간격 */
+    &:has(.active) {
+        gap: 10px; /* 예: 활성화 시 아이템들이 더 넓어지므로 간격을 줄임 */
+    }
+
+    &:has(.active) li:not(.active) h3 {
+    font-size: 8rem;
+    opacity: 0.5;
+  }
+
+      &:has(.active) li:not(.active) p {
+    font-size: 1.5rem;
+    opacity: 0.5;
+  }
+
+  @media (max-width: 1600px){
+          &:has(.active) li:not(.active) p {
+    font-size: 1.2rem;
+    opacity: 0.5;
+  }
+  }
+
+    @media (max-width: 1340px){
         flex-direction: column;
         gap: 0;
         
-          li:not(:first-child) {
- margin-top: 20px;
-  }
+        li:not(:first-child) {
+        margin-top: 20px;
+        }
     }
 `;
 
@@ -147,12 +172,12 @@ const Lists = styled.li`
     height: 70vh; 
     min-height: 500px;
     
-    padding: 20px 32px 10px 32px;
+    padding: 20px 20px 10px 20px;
     display: flex;
     flex: 0.5; /* 데스크탑 가로 배열용 */
     flex-direction: column;
     background-color: var(--main-color);
-    border-radius: 50px;
+    border-radius: 30px;
     box-sizing: border-box;
     color: var(--background-color);
     position: relative;
@@ -165,7 +190,7 @@ const Lists = styled.li`
     h3 {
         font-family: var(--font-italic);
         font-style: italic;
-        font-size: 17.5rem;
+        font-size: 13rem;
         color: var(--background-color);
         transition: 800ms;
         margin: 0;
@@ -173,7 +198,7 @@ const Lists = styled.li`
     }
 
     &.active {
-        flex: 2; /* 활성화 시 가로로 더 많이 차지 */
+        flex: 4; /* 활성화 시 가로로 더 많이 차지 */
         cursor: default;
         border-radius: 20px;
         
@@ -181,15 +206,16 @@ const Lists = styled.li`
             font-size: 3rem;
         }
     }
+    
 
     /* --- 모바일/태블릿 터치 대응 (핵심 수정 구간) --- */
-    @media (max-width: 1024px) {
+    @media (max-width: 1340px) {
         /* 비활성 상태: 높이를 명확하게 고정 (!important 제거) */
         flex: none; 
         width: 100%;
-        height: 35vh; 
-        min-height: 250px;
-        max-height: 35vh;
+        height: 20vh; 
+        min-height: 100px;
+        max-height: 20vh;
         
         display: flex;
         justify-content: center;
@@ -234,15 +260,13 @@ const Lists = styled.li`
 
 // 숫자와 기본 정보를 가로로 배치하기 위한 래퍼
 const HeaderRow = styled.div`
-    /* height: 100%; */
+    height: 100%;
     display: flex;
     flex-direction: column; /* 기본은 위아래 */
     justify-content: space-around;
     align-items: flex-start;
-    gap: 10px;
     flex-shrink: 0;
     transition: all 800ms ease;
-    gap: 60%;
 
     ${Lists}.active & {
         height: auto;
@@ -253,13 +277,13 @@ const HeaderRow = styled.div`
         margin-bottom: 10px;
     }
 
-    @media (max-width: 1024px){
+    @media (max-width: 1340px){
         flex-direction: row;
-        justify-content: space-between;
-        gap: 0;
+        /* justify-content: space-between; */
+        gap: 15px;
+        align-items: center;
 
         ${Lists}.active &{
-
             margin-bottom: 0;
         }
     }
@@ -272,24 +296,25 @@ const DesignInfo = styled.div`
     flex-direction: column;
     font-family: var(--font-main);
     transition: 1000ms;
+    box-sizing: border-box;
 
     /* 비활성 상태일 때의 추가 스타일이 필요하면 여기에 작성 */
 
     .title {
         font-weight: bold;
         font-size: 2rem;
-        white-space: nowrap; /* 제목 줄바꿈 방지 */
+        // white-space: nowrap; /* 제목 줄바꿈 방지 */
     }
     
     .description {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         /* 활성화 시 부드럽게 사라지게 하고 싶다면 opacity 조절 가능 */
         display: ${props => props.$active ? 'none' : 'block'};
     }
 
-    @media (max-width: 1024px){
+    @media (max-width: 1340px){
         align-self: flex-end;
-        padding-bottom: 20px;
+        padding-bottom: 30px;
 
         ${Lists}.active & {
             padding-bottom: 0;
@@ -322,13 +347,13 @@ const TextBox = styled.div`
     margin-bottom: 15px;
     flex-shrink: 0;
 
-    .more-description {
-        font-size: 1.5rem;
+    .moreDescription {
+        font-size: 1.2rem;
         line-height: 1.4;
     }
 
     @media (max-width: 636px){
-        .more-description{
+        .moreDescription{
             font-size: 1rem;
         }
     }

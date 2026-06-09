@@ -121,8 +121,19 @@ export default function Header() {
                             <li className="skills"><h2>Skills</h2></li>
                         </Link>
                         <SnsLink>
-                            <Sns><img src={kakaoIcon} alt="카카오톡 아이콘" /></Sns>
-                            <Sns><img src={emailIcon} alt="이메일 아이콘" /></Sns>
+                            {/* 카카오톡 오픈채팅 링크 */}
+                            <Sns href="https://open.kakao.com/me/seongmin_jo" target="_blank" rel="noopener noreferrer">
+                                <img src={kakaoIcon} alt="카카오톡 아이콘" />
+                            </Sns>
+
+                            {/* 이메일 링크 (클릭 시 아웃룩이나 기본 메일 앱이 켜집니다) */}
+                            <Sns
+                                href="https://mail.google.com/mail/?view=cm&fs=1&to=0727jsm@gmail.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img src={emailIcon} alt="이메일 아이콘" />
+                            </Sns>
                         </SnsLink>
                     </Nav>
                 )}
@@ -359,22 +370,24 @@ const SnsLink = styled.div`
     margin-right: 20px;
 `
 
-const Sns = styled.div`
+const Sns = styled.a`
     width: 30px;
     height: 30px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none; /* a 태그 기본 밑줄 제거 */
 
-    img{
+    img {
         width: 100%;
         height: 100%;
-        transition: 400ms;
+        transition: transform 400ms; /* width/height 대신 transform 사용 */
 
-        &:hover{
-            width: 120%;
-            height: 120%;
+        &:hover {
+            /* width/height를 키우면 레이아웃이 깨질 수 있으므로, 
+               크기를 키울 때는 transform: scale()을 쓰는 것이 안전하고 부드럽습니다. */
+            transform: scale(1.2); 
         }
     }
 `

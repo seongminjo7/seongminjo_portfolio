@@ -1,5 +1,6 @@
 import peat from "../img/skills/peat.png"
 import illustration from "../img/skills/illustration.png"
+import uiux from "../img/skills/uiux.png"
 
 
 export const skillSections = [
@@ -22,17 +23,17 @@ export const skillSections = [
         title: "UI/UX",
         description: "사용자 중심의 웹 구조 설계 및 인터페이스 디자인",
         moreDescription: "정보 설계(IA)를 바탕으로 논리적인 웹 사이트 구조를 기획하며, Figma를 활용해 반응형 레이아웃과 디자인 시스템을 구축합니다. 심미적 완성도와 사용자의 편의성을 동시에 충족하는 최적의 UI를 설계합니다.",
-        moreImage: illustration, // (참고: id에 맞는 이미지 변수명으로 변경 권장)
+        moreImage: uiux, // (참고: id에 맞는 이미지 변수명으로 변경 권장)
         // moreImage: web_design_image, // (참고: id에 맞는 이미지 변수명으로 변경 권장)
     },
-    {
-        id: "webPublishing",
-        title: "Publishing",
-        description: "웹 표준 준수 및 동적 인터랙션 구현",
-        moreDescription: "시맨틱 마크업을 통한 견고한 웹 구조 설계를 바탕으로, JavaScript와 CSS 애니메이션을 활용한 생동감 있는 인터랙션을 구현합니다. 크로스 브라우징과 웹 표준을 준수하여 안정적인 웹 환경을 구축합니다.",
-        moreImage: illustration, // (참고: id에 맞는 이미지 변수명으로 변경 권장)
-        // moreImage: publishing_image, // (참고: id에 맞는 이미지 변수명으로 변경 권장)
-    },
+    // {
+    //     id: "webPublishing",
+    //     title: "Publishing",
+    //     description: "웹 표준 준수 및 동적 인터랙션 구현",
+    //     moreDescription: "시맨틱 마크업을 통한 견고한 웹 구조 설계를 바탕으로, JavaScript와 CSS 애니메이션을 활용한 생동감 있는 인터랙션을 구현합니다. 크로스 브라우징과 웹 표준을 준수하여 안정적인 웹 환경을 구축합니다.",
+    //     moreImage: illustration, // (참고: id에 맞는 이미지 변수명으로 변경 권장)
+    //     // moreImage: publishing_image, // (참고: id에 맞는 이미지 변수명으로 변경 권장)
+    // },
     // {
     //     id: "b",
     //     title: "bbb",
